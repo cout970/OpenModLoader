@@ -10,22 +10,20 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-/**
- * Based of GradleStart
- */
 public class RunOMEClient {
 
     public static void main(String[] args) {
+        System.setProperty("org.lwjgl.librarypath", new File("./.gradle/minecraft/natives/").getAbsolutePath());
         Main.main(getArgs());
     }
 
     private static String[] getArgs() {
-        hackNatives();
         Map<String, String> argMap = new HashMap<>();
         argMap.put("version", "1.10");
         argMap.put("accessToken", "GRASS");
+        argMap.put("tweakClass", "xyz.openmodloader.launcher.OMLTweaker");
 
-        ArrayList list = new ArrayList(22);
+        ArrayList list = new ArrayList();
         Iterator out = argMap.entrySet().iterator();
         while (out.hasNext()) {
             Map.Entry b = (Map.Entry) out.next();
@@ -37,26 +35,5 @@ public class RunOMEClient {
         }
         String[] var5 = (String[]) list.toArray(new String[list.size()]);
         return var5;
-    }
-
-    private static void hackNatives() {
-        String paths = System.getProperty("java.library.path");
-        String nativesDir = ".gradle/minecraft/natives/";
-        if(Strings.isNullOrEmpty(paths)) {
-            paths = nativesDir;
-        } else {
-            paths = paths + File.pathSeparator + nativesDir;
-        }
-
-        System.setProperty("java.library.path", paths);
-
-        try {
-            Field sysPathsField = ClassLoader.class.getDeclaredField("sys_paths");
-            sysPathsField.setAccessible(true);
-            sysPathsField.set((Object)null, (Object)null);
-        } catch (Throwable var3) {
-            ;
-        }
-
     }
 }

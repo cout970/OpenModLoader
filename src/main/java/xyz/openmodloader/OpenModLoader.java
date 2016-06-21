@@ -7,9 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
-/**
- * Created by Mark on 18/06/2016.
- */
+
 public class OpenModLoader {
 
     public static final OpenModLoader instance = new OpenModLoader();

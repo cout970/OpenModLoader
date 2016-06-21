@@ -18,9 +18,6 @@ import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-/**
- * Created by Mark on 18/06/2016.
- */
 public class ModLoader {
 
     static File runDir = new File(".");
