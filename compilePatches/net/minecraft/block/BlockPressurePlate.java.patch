@@ -1,5 +1,5 @@
---- /net/minecraft/block
-+++ /net/minecraft/block
+--- /\net\minecraft\block
++++ /\net\minecraft\block
 @@ -54,7 +54,7 @@
  
     protected int computeRedstoneStrength(World var1, BlockPos var2) {

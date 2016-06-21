@@ -1,5 +1,5 @@
---- /net/minecraft/world/gen/structure
-+++ /net/minecraft/world/gen/structure
+--- /\net\minecraft\world\gen\structure
++++ /\net\minecraft\world\gen\structure
 @@ -367,9 +367,9 @@
  
                 BlockPos var21 = var5.add(var10.calculateConnectedPos(var9, new BlockPos(3, -1 - var13 * 3, 5), var9, new BlockPos(3, 5, 7)));

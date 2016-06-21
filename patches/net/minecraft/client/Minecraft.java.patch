@@ -1,41 +1,12 @@
---- /net/minecraft/client
-+++ /net/minecraft/client
-@@ -200,6 +200,8 @@
- import org.lwjgl.opengl.OpenGLException;
- import org.lwjgl.opengl.PixelFormat;
- import org.lwjgl.util.glu.GLU;
-+import xyz.openmodloader.OpenModLoader;
-+import xyz.openmodloader.modloader.events.MinecraftLoadEvent;
-
- public class Minecraft implements IThreadListener, ISnooperInfo {
-    private static final Logger LOGGER = LogManager.getLogger();
-@@ -389,6 +391,9 @@
+--- /\net\minecraft\client
++++ /\net\minecraft\client
+@@ -389,6 +389,9 @@
     }
-
+ 
     private void startGame() throws LWJGLException {
 +      //OME
-+      OpenModLoader.INSTANCE.minecraftConstruction();
-+      //END OME
++      xyz.openmodloader.OpenModLoader.INSTANCE.minecraftConstruction();
++      //OME END
        this.gameSettings = new GameSettings(this, this.mcDataDir);
        this.defaultResourcePacks.add(this.mcDefaultResourcePack);
        this.startTimerHackThread();
-@@ -413,6 +418,9 @@
-       this.renderEngine = new TextureManager(this.mcResourceManager);
-       this.mcResourceManager.registerReloadListener(this.renderEngine);
-       this.drawSplashScreen(this.renderEngine);
-+      //OME
-+      OpenModLoader.INSTANCE.EVENT_BUS.trigger(new MinecraftLoadEvent.Pre());
-+      //END OME
-       this.skinManager = new SkinManager(this.renderEngine, new File(this.fileAssets, "skins"), this.sessionService);
-       this.saveLoader = new AnvilSaveConverter(new File(this.mcDataDir, "saves"), this.dataFixer);
-       this.mcSoundHandler = new SoundHandler(this.mcResourceManager, this.gameSettings);
-@@ -476,6 +484,9 @@
-       this.effectRenderer = new ParticleManager(this.theWorld, this.renderEngine);
-       this.checkGLError("Post startup");
-       this.ingameGUI = new GuiIngame(this);
-+      //OME
-+      OpenModLoader.INSTANCE.EVENT_BUS.trigger(new MinecraftLoadEvent.Post());
-+      //END OME
-       if(this.serverName != null) {
-          this.displayGuiScreen(new GuiConnecting(new GuiMainMenu(), this, this.serverName, this.serverPort));
-       } else {

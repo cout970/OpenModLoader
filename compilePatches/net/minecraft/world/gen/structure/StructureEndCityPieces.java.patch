@@ -1,5 +1,5 @@
---- /net/minecraft/world/gen/structure
-+++ /net/minecraft/world/gen/structure
+--- /\net\minecraft\world\gen\structure
++++ /\net\minecraft\world\gen\structure
 @@ -198,7 +198,7 @@
        if(var1 > 8) {
           return false;

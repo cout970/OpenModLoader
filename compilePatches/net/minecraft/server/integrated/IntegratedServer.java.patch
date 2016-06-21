@@ -1,5 +1,5 @@
---- /net/minecraft/server/integrated
-+++ /net/minecraft/server/integrated
+--- /\net\minecraft\server\integrated
++++ /\net\minecraft\server\integrated
 @@ -58,11 +58,11 @@
        this.theWorldSettings = this.isDemo()?DemoWorldServer.DEMO_WORLD_SETTINGS:var4;
     }

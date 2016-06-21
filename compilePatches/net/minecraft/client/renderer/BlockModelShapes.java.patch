@@ -1,5 +1,5 @@
---- /net/minecraft/client/renderer
-+++ /net/minecraft/client/renderer
+--- /\net\minecraft\client\renderer
++++ /\net\minecraft\client\renderer
 @@ -122,7 +122,7 @@
     public void reloadModels() {
        this.bakedModelStore.clear();

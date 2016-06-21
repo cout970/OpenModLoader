@@ -1,5 +1,5 @@
---- /net/minecraft/pathfinding
-+++ /net/minecraft/pathfinding
+--- /\net\minecraft\pathfinding
++++ /\net\minecraft\pathfinding
 @@ -63,7 +63,7 @@
        BlockPos var9 = new BlockPos(this.entity);
        PathNodeType var10 = this.getPathNodeType(this.entity, var9.getX(), var1, var9.getZ());

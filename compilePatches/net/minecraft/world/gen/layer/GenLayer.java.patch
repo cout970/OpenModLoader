@@ -1,5 +1,5 @@
---- /net/minecraft/world/gen/layer
-+++ /net/minecraft/world/gen/layer
+--- /\net\minecraft\world\gen\layer
++++ /\net\minecraft\world\gen\layer
 @@ -68,7 +68,7 @@
        GenLayer var36 = GenLayerZoom.magnify(1000L, var9, 2);
        GenLayerBiomeEdge var37 = new GenLayerBiomeEdge(1000L, var36);

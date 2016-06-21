@@ -1,5 +1,5 @@
---- /net/minecraft/nbt
-+++ /net/minecraft/nbt
+--- /\net\minecraft\nbt
++++ /\net\minecraft\nbt
 @@ -195,7 +195,7 @@
     }
  

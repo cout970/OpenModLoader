@@ -1,5 +1,5 @@
---- /net/minecraft/entity/ai
-+++ /net/minecraft/entity/ai
+--- /\net\minecraft\entity\ai
++++ /\net\minecraft\entity\ai
 @@ -54,16 +54,16 @@
        if(this.targetChance > 0 && this.taskOwner.getRNG().nextInt(this.targetChance) != 0) {
           return false;

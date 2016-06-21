@@ -59,9 +59,9 @@ public class ModLoader {
     public void registerMods() throws IllegalAccessException, InstantiationException {
         for (ModContainer mod : new ArrayList<>(MODS)) {
             try {
-                OpenModLoader.INSTANCE.EVENT_BUS.register(mod.getInstance());
+                mod.getInstance().onEnable();
             } catch (RuntimeException e) {
-                System.err.println("An error occurred while loading mod " + mod.getModID() + ". Unloading mod.");
+                System.err.println("An error occurred while enabling mod " + mod.getModID());
                 e.printStackTrace();
                 ModLoader.MODS.remove(mod);
             }

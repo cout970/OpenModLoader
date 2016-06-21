@@ -1,5 +1,5 @@
---- /net/minecraft/world/gen/structure/template
-+++ /net/minecraft/world/gen/structure/template
+--- /\net\minecraft\world\gen\structure\template
++++ /\net\minecraft\world\gen\structure\template
 @@ -101,7 +101,7 @@
     }
  

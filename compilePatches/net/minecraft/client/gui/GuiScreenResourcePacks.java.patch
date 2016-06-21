@@ -1,5 +1,5 @@
---- /net/minecraft/client/gui
-+++ /net/minecraft/client/gui
+--- /\net\minecraft\client\gui
++++ /\net\minecraft\client\gui
 @@ -38,7 +38,7 @@
           this.selectedResourcePacks = Lists.newArrayList();
           ResourcePackRepository var1 = this.mc.getResourcePackRepository();

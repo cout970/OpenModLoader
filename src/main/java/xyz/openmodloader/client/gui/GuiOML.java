@@ -5,14 +5,11 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 
-import xyz.openmodloader.event.strippable.Side;
-import xyz.openmodloader.event.strippable.Strippable;
 import xyz.openmodloader.modloader.ModContainer;
 import xyz.openmodloader.modloader.ModLoader;
 
 import java.awt.*;
 
-@Strippable(Side.CLIENT)
 public class GuiOML extends GuiScreen {
 
 	protected GuiScreen prevScreen;

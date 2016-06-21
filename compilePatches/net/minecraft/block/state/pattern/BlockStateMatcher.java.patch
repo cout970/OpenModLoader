@@ -1,5 +1,5 @@
---- /net/minecraft/block/state/pattern
-+++ /net/minecraft/block/state/pattern
+--- /\net\minecraft\block\state\pattern
++++ /\net\minecraft\block\state\pattern
 @@ -41,7 +41,7 @@
        }
     }

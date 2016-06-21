@@ -1,5 +1,5 @@
---- /net/minecraft/enchantment
-+++ /net/minecraft/enchantment
+--- /\net\minecraft\enchantment
++++ /\net\minecraft\enchantment
 @@ -160,7 +160,7 @@
     }
  

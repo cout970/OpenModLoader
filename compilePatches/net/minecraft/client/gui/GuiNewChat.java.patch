@@ -1,5 +1,5 @@
---- /net/minecraft/client/gui
-+++ /net/minecraft/client/gui
+--- /\net\minecraft\client\gui
++++ /\net\minecraft\client\gui
 @@ -125,7 +125,7 @@
        }
  

@@ -9,7 +9,7 @@ import java.io.IOException;
 public class ModContainer {
     private transient Class<?> mainClass;
     private transient BufferedImage logo;
-    private transient Object instance;
+    private transient IMod instance;
 
     @SerializedName("main_class")
     private String classString;
@@ -45,11 +45,11 @@ public class ModContainer {
         return logo;
     }
 
-    public Object getInstance() {
+    public IMod getInstance() {
         if (this.instance == null) {
             try {
-                this.instance = this.getMainClass().newInstance();
-            } catch (InstantiationException | IllegalAccessException e) {
+                this.instance = (IMod) this.getMainClass().newInstance();
+            } catch (ClassCastException | InstantiationException | IllegalAccessException e) {
                 throw new RuntimeException(e);
             }
         }

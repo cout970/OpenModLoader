@@ -1,5 +1,5 @@
---- /net/minecraft/client/gui
-+++ /net/minecraft/client/gui
+--- /\net\minecraft\client\gui
++++ /\net\minecraft\client\gui
 @@ -11,16 +11,6 @@
  import java.util.Random;
  import java.util.concurrent.atomic.AtomicInteger;

@@ -1,5 +1,5 @@
---- /net/minecraft/entity/projectile
-+++ /net/minecraft/entity/projectile
+--- /\net\minecraft\entity\projectile
++++ /\net\minecraft\entity\projectile
 @@ -81,7 +81,7 @@
        if(!this.worldObj.isRemote) {
           ItemStack var2 = this.getPotion();

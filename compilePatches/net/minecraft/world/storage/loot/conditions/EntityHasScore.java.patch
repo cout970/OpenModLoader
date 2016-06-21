@@ -1,5 +1,5 @@
---- /net/minecraft/world/storage/loot/conditions
-+++ /net/minecraft/world/storage/loot/conditions
+--- /\net\minecraft\world\storage\loot\conditions
++++ /\net\minecraft\world\storage\loot\conditions
 @@ -73,7 +73,7 @@
        }
  

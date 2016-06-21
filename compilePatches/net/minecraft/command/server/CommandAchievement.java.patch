@@ -1,5 +1,5 @@
---- /net/minecraft/command/server
-+++ /net/minecraft/command/server
+--- /\net\minecraft\command\server
++++ /\net\minecraft\command\server
 @@ -68,7 +68,7 @@
                             throw new CommandException("commands.achievement.alreadyHave", new Object[]{var5.getName(), var4.createChatComponent()});
                          }

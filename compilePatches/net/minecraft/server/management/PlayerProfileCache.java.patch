@@ -1,5 +1,5 @@
---- /net/minecraft/server/management
-+++ /net/minecraft/server/management
+--- /\net\minecraft\server\management
++++ /\net\minecraft\server\management
 @@ -181,7 +181,7 @@
  
        try {

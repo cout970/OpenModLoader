@@ -1,5 +1,5 @@
---- /net/minecraft/block
-+++ /net/minecraft/block
+--- /\net\minecraft\block
++++ /\net\minecraft\block
 @@ -137,7 +137,7 @@
        IBlockState var3 = var1.getBlockState(var2);
        boolean var4 = ((Boolean)var3.getValue(POWERED)).booleanValue();

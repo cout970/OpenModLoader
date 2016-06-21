@@ -1,5 +1,5 @@
---- /net/minecraft/entity/ai
-+++ /net/minecraft/entity/ai
+--- /\net\minecraft\entity\ai
++++ /\net\minecraft\entity\ai
 @@ -25,7 +25,7 @@
        } else if(this.villagerObj.getRNG().nextInt(400) != 0) {
           return false;

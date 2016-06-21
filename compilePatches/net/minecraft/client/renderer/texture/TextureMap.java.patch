@@ -1,5 +1,5 @@
---- /net/minecraft/client/renderer/texture
-+++ /net/minecraft/client/renderer/texture
+--- /\net\minecraft\client\renderer\texture
++++ /\net\minecraft\client\renderer\texture
 @@ -134,7 +134,7 @@
  
        LOGGER.info("Created: {}x{} {}-atlas", new Object[]{Integer.valueOf(var3.getCurrentWidth()), Integer.valueOf(var3.getCurrentHeight()), this.basePath});
