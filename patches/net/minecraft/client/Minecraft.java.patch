@@ -14,7 +14,7 @@
 
     private void startGame() throws LWJGLException {
 +      //OME
-+      OpenModLoader.instance.minecraftConstruction();
++      OpenModLoader.INSTANCE.minecraftConstruction();
 +      //END OME
        this.gameSettings = new GameSettings(this, this.mcDataDir);
        this.defaultResourcePacks.add(this.mcDefaultResourcePack);
@@ -24,7 +24,7 @@
        this.mcResourceManager.registerReloadListener(this.renderEngine);
        this.drawSplashScreen(this.renderEngine);
 +      //OME
-+      OpenModLoader.instance.eventBus.trigger(new MinecraftLoadEvent.Pre());
++      OpenModLoader.INSTANCE.EVENT_BUS.trigger(new MinecraftLoadEvent.Pre());
 +      //END OME
        this.skinManager = new SkinManager(this.renderEngine, new File(this.fileAssets, "skins"), this.sessionService);
        this.saveLoader = new AnvilSaveConverter(new File(this.mcDataDir, "saves"), this.dataFixer);
@@ -34,7 +34,7 @@
        this.checkGLError("Post startup");
        this.ingameGUI = new GuiIngame(this);
 +      //OME
-+      OpenModLoader.instance.eventBus.trigger(new MinecraftLoadEvent.Post());
++      OpenModLoader.INSTANCE.EVENT_BUS.trigger(new MinecraftLoadEvent.Post());
 +      //END OME
        if(this.serverName != null) {
           this.displayGuiScreen(new GuiConnecting(new GuiMainMenu(), this, this.serverName, this.serverPort));

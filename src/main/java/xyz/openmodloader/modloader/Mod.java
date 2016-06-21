@@ -13,4 +13,5 @@ public @interface Mod {
 
 	String name();
 
+	String version() default "";
 }

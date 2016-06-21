@@ -4,10 +4,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
+
+import xyz.openmodloader.event.strippable.Side;
+import xyz.openmodloader.event.strippable.Strippable;
+import xyz.openmodloader.modloader.ModContainer;
 import xyz.openmodloader.modloader.ModLoader;
 
 import java.awt.*;
 
+@Strippable(Side.CLIENT)
 public class GuiOML extends GuiScreen {
 
 	protected GuiScreen prevScreen;
@@ -37,9 +42,9 @@ public class GuiOML extends GuiScreen {
 		this.drawCenteredString(this.fontRendererObj, "Open Mod Loader Settings", this.width / 2, 20, 16777215);
 		this.drawString(this.fontRendererObj, ModLoader.mods.size() + " loaded mod" + (ModLoader.mods.size() > 1 ? "s" : "") + ":", 10, 50, Color.gray.getRGB());
 		int i = 0;
-		for(Class mod : ModLoader.mods){
+		for(ModContainer mod : ModLoader.mods){
 			i++;
-			this.drawString(this.fontRendererObj, mod.getSimpleName() , 15, 70 * i, Color.LIGHT_GRAY.getRGB());
+			this.drawString(this.fontRendererObj, mod.name , 15, 70 * i, Color.LIGHT_GRAY.getRGB());
 		}
 
 	}

@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
 public @interface Strippable {
 
 	Side value();
-	String[] mod();
-	String[] classes();
+	String[] mod() default "";
+	String[] classes() default "";
 }

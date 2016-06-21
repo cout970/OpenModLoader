@@ -10,20 +10,20 @@ import java.io.IOException;
 
 public class OpenModLoader {
 
-    public static final OpenModLoader instance = new OpenModLoader();
+    public static final OpenModLoader INSTANCE = new OpenModLoader();
 
-    public final EventBus eventBus = new EventBus();
+    public final EventBus EVENT_BUS = new EventBus();
 
-    private final Logger logger = LogManager.getLogger();
+    private final Logger LOGGER = LogManager.getLogger();
 
     private ModLoader loader;
 
     public OpenModLoader() {
-        eventBus.register(this);
+        EVENT_BUS.register(this);
     }
 
     public void minecraftConstruction() {
-        logger.info("Loading Grass mod loader");
+        LOGGER.info("Loading Grass mod loader");
         try {
             loader = new ModLoader();
             loader.loadMods();
