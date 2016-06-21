@@ -1,5 +1,5 @@
---- /\net\minecraft\network\datasync
-+++ /\net\minecraft\network\datasync
+--- /net/minecraft/network/datasync
++++ /net/minecraft/network/datasync
 @@ -237,7 +237,7 @@
     }
  

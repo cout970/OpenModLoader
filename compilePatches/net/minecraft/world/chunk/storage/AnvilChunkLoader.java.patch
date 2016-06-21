@@ -1,5 +1,5 @@
---- /\net\minecraft\world\chunk\storage
-+++ /\net\minecraft\world\chunk\storage
+--- /net/minecraft/world/chunk/storage
++++ /net/minecraft/world/chunk/storage
 @@ -259,7 +259,7 @@
        }
  

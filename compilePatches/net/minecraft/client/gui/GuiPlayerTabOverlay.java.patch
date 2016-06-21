@@ -1,5 +1,5 @@
---- /\net\minecraft\client\gui
-+++ /\net\minecraft\client\gui
+--- /net/minecraft/client/gui
++++ /net/minecraft/client/gui
 @@ -51,7 +51,7 @@
  
     public void renderPlayerlist(int var1, Scoreboard var2, @Nullable ScoreObjective var3) {

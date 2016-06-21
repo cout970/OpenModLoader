@@ -1,5 +1,5 @@
---- /\net\minecraft\entity\monster
-+++ /\net\minecraft\entity\monster
+--- /net/minecraft/entity/monster
++++ /net/minecraft/entity/monster
 @@ -278,7 +278,7 @@
           }
  

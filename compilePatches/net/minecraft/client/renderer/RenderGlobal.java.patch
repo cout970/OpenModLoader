@@ -1,5 +1,5 @@
---- /\net\minecraft\client\renderer
-+++ /\net\minecraft\client\renderer
+--- /net/minecraft/client/renderer
++++ /net/minecraft/client/renderer
 @@ -523,13 +523,13 @@
           }
  

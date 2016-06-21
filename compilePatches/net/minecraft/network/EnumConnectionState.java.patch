@@ -1,5 +1,5 @@
---- /\net\minecraft\network
-+++ /\net\minecraft\network
+--- /net/minecraft/network
++++ /net/minecraft/network
 @@ -265,7 +265,7 @@
     }
  

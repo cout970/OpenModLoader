@@ -1,5 +1,5 @@
---- /\net\minecraft\inventory
-+++ /\net\minecraft\inventory
+--- /net/minecraft/inventory
++++ /net/minecraft/inventory
 @@ -129,7 +129,7 @@
        } else {
           ItemStack var5 = var1.copy();

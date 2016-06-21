@@ -1,5 +1,5 @@
---- /\net\minecraft\world\gen\structure
-+++ /\net\minecraft\world\gen\structure
+--- /net/minecraft/world/gen/structure
++++ /net/minecraft/world/gen/structure
 @@ -49,7 +49,7 @@
     public boolean addComponentParts(World var1, Random var2, StructureBoundingBox var3) {
        this.placeSettings.setBoundingBox(var3);

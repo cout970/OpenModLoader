@@ -1,5 +1,5 @@
---- /\net\minecraft\util
-+++ /\net\minecraft\util
+--- /net/minecraft/util
++++ /net/minecraft/util
 @@ -11,9 +11,9 @@
     }
  

@@ -1,5 +1,5 @@
---- /\net\minecraft\entity\ai
-+++ /\net\minecraft\entity\ai
+--- /net/minecraft/entity/ai
++++ /net/minecraft/entity/ai
 @@ -22,7 +22,7 @@
        } else if(!this.theVillager.worldObj.isDaytime()) {
           return false;

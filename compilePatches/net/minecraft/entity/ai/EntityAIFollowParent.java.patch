@@ -1,5 +1,5 @@
---- /\net\minecraft\entity\ai
-+++ /\net\minecraft\entity\ai
+--- /net/minecraft/entity/ai
++++ /net/minecraft/entity/ai
 @@ -19,7 +19,7 @@
        if(this.childAnimal.getGrowingAge() >= 0) {
           return false;

@@ -1,5 +1,5 @@
---- /\net\minecraft\world
-+++ /\net\minecraft\world
+--- /net/minecraft/world
++++ /net/minecraft/world
 @@ -2176,7 +2176,7 @@
        ArrayList var3 = Lists.newArrayList();
  

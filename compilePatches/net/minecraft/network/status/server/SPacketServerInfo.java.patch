@@ -1,5 +1,5 @@
---- /\net\minecraft\network\status\server
-+++ /\net\minecraft\network\status\server
+--- /net/minecraft/network/status/server
++++ /net/minecraft/network/status/server
 @@ -13,7 +13,7 @@
  import net.minecraft.util.text.Style;
  
