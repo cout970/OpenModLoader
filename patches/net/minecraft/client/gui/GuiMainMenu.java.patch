@@ -25,7 +25,36 @@
  
  public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
     private static final AtomicInteger UNIQUE_THREAD_ID = new AtomicInteger(0);
-@@ -437,6 +428,11 @@
+@@ -70,6 +61,7 @@
+    private int openGLWarningY2;
+    private ResourceLocation backgroundTexture;
+    private GuiButton realmsButton;
++   private GuiButton modsButton;
+    private boolean hasCheckedForRealmsNotification;
+    private GuiScreen realmsNotification;
+ 
+@@ -185,7 +177,8 @@
+    private void addSingleplayerMultiplayerButtons(int var1, int var2) {
+       this.buttonList.add(new GuiButton(1, this.width / 2 - 100, var1, I18n.format("menu.singleplayer", new Object[0])));
+       this.buttonList.add(new GuiButton(2, this.width / 2 - 100, var1 + var2 * 1, I18n.format("menu.multiplayer", new Object[0])));
+-      this.realmsButton = this.func_189646_b(new GuiButton(14, this.width / 2 - 100, var1 + var2 * 2, I18n.format("menu.online", new Object[0])));
++      this.realmsButton = this.func_189646_b(new GuiButton(14, this.width / 2 + 2, var1 + var2 * 2, 98, 20, I18n.format("menu.online", new Object[0])));
++      this.modsButton = this.func_189646_b(new GuiButton(21, this.width / 2 - 100, var1 + var2 * 2, 98, 20, "Open Mod Loader"));
+    }
+ 
+    private void addDemoButtons(int var1, int var2) {
+@@ -236,6 +229,10 @@
+          }
+       }
+ 
++      if(var1.id == 21){
++         this.mc.displayGuiScreen(new xyz.openmodloader.client.gui.GuiOML(this));
++      }
++
+    }
+ 
+    private void switchToRealms() {
+@@ -437,6 +434,11 @@
        } else {
           var8 = var8 + ("release".equalsIgnoreCase(this.mc.getVersionType())?"":"/" + this.mc.getVersionType());
        }

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class RunOMEClient {
+public class RunOMLClient {
 
     public static void main(String[] args) {
         System.setProperty("org.lwjgl.librarypath", new File("./.gradle/minecraft/natives/").getAbsolutePath());

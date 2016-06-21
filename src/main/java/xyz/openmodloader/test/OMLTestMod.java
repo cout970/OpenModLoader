@@ -5,7 +5,7 @@ import xyz.openmodloader.modloader.Mod;
 import xyz.openmodloader.modloader.events.MinecraftLoadEvent;
 
 
-@Mod
+@Mod(name = "Test Mod", modid = "OML Test Mod")
 public class OMLTestMod {
 
     @RegisterEvent

@@ -5,6 +5,7 @@ import jdk.internal.org.objectweb.asm.Type;
 import jdk.internal.org.objectweb.asm.tree.AnnotationNode;
 import jdk.internal.org.objectweb.asm.tree.ClassNode;
 import xyz.openmodloader.OpenModLoader;
+import xyz.openmodloader.test.OMLTestMod;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,6 +47,10 @@ public class ModLoader {
             }
         }
 
+        //TODO temp fix as launch wrapper broke it
+        mods.add(OMLTestMod.class);
+
+        //TODO fix this
 //        File files = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
 //        search(files);
 //
