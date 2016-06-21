@@ -1,0 +1,8 @@
+--- /net/minecraft/util
++++ /net/minecraft/util
+@@ -1,4 +1,4 @@
+ package net.minecraft.util;
+ 
+-public interface IObjectIntIterable extends Iterable {
++public interface IObjectIntIterable<V> extends Iterable<V> {
+ }

@@ -1,0 +1,12 @@
+/OpenModLoader.ipr
+/OpenModLoader.iws
+/OpenModLoader.iml
+/out
+/.idea
+/work
+/tools
+/build
+/.gradle
+*.log
+*.reject
+/run/

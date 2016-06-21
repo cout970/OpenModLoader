@@ -1,2 +1,15 @@
-# OpenModLoader
-A next gen minecraft mod loader for minecraft 1.10 and above
+# Grass
+A minecraft modding API
+
+
+# How to setup
+
+Clone this repo and run:
+
+bash gradlew setupGrass genIdeaRuns --refresh-dependencies
+
+open intelij on the folder
+
+(temp) add a new run config with the main class: GrassClient
+
+run

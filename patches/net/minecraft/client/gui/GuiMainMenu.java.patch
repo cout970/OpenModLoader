@@ -1,0 +1,39 @@
+--- /net/minecraft/client/gui
++++ /net/minecraft/client/gui
+@@ -11,16 +11,6 @@
+ import java.util.Random;
+ import java.util.concurrent.atomic.AtomicInteger;
+ import net.minecraft.client.Minecraft;
+-import net.minecraft.client.gui.GuiButton;
+-import net.minecraft.client.gui.GuiButtonLanguage;
+-import net.minecraft.client.gui.GuiConfirmOpenLink;
+-import net.minecraft.client.gui.GuiLanguage;
+-import net.minecraft.client.gui.GuiMultiplayer;
+-import net.minecraft.client.gui.GuiOptions;
+-import net.minecraft.client.gui.GuiScreen;
+-import net.minecraft.client.gui.GuiWorldSelection;
+-import net.minecraft.client.gui.GuiYesNo;
+-import net.minecraft.client.gui.GuiYesNoCallback;
+ import net.minecraft.client.renderer.GlStateManager;
+ import net.minecraft.client.renderer.OpenGlHelper;
+ import net.minecraft.client.renderer.Tessellator;
+@@ -43,6 +33,7 @@
+ import org.apache.logging.log4j.Logger;
+ import org.lwjgl.opengl.GLContext;
+ import org.lwjgl.util.glu.Project;
++import xyz.openmodloader.client.OpenModLoaderClient;
+ 
+ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback {
+    private static final AtomicInteger UNIQUE_THREAD_ID = new AtomicInteger(0);
+@@ -437,6 +428,11 @@
+       } else {
+          var8 = var8 + ("release".equalsIgnoreCase(this.mc.getVersionType())?"":"/" + this.mc.getVersionType());
+       }
++      //OME START
++      for(String str : xyz.openmodloader.client.OpenModLoaderClient.getMainMenuStrings()){
++                  this.drawString(this.fontRendererObj, str, 2, this.height - 20 - (OpenModLoaderClient.getMainMenuStrings().indexOf(str) * 10), -1);
++      }
++      //OMe END
+ 
+       this.drawString(this.fontRendererObj, var8, 2, this.height - 10, -1);
+       String var9 = "Copyright Mojang AB. Do not distribute!";

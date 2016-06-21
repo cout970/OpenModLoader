@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            name = "Modmuss50"
+            url = "http://maven.modmuss50.me/"
+        }
+    }
+    dependencies {
+        classpath "GrassGradle:GrassGradle:0.0.4.+"
+    }
+}
+apply plugin: 'me.modmuss50.grassgradle'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+group 'OpenModLoader'
+version '1.0-SNAPSHOT'
+
+
+minecraft {
+    version = "1.10"
+    mappings = "20160604"
+    mappingsGroup = "snapshot_nodoc"
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.code.findbugs:jsr305:3.0.1'
+}
