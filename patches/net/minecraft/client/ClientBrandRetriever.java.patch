@@ -1,5 +1,5 @@
---- /net/minecraft/client
-+++ /net/minecraft/client
+--- /\net\minecraft\client
++++ /\net\minecraft\client
 @@ -5,6 +5,6 @@
     }
  

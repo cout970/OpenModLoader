@@ -1,0 +1,12 @@
+--- /\net\minecraft\client\multiplayer
++++ /\net\minecraft\client\multiplayer
+@@ -106,6 +106,9 @@
+          }
+       }
+ 
++      //OML START
++      if (!xyz.openmodloader.event.Events.BLOCK_DESTROY.post(new xyz.openmodloader.event.impl.BlockEvent.DestroyEvent(this.mc.theWorld, this.mc.theWorld.getBlockState(var1), var1))) return false;
++      //OML END
+       if(this.currentGameType.isCreative() && this.mc.thePlayer.getHeldItemMainhand() != null && this.mc.thePlayer.getHeldItemMainhand().getItem() instanceof ItemSword) {
+          return false;
+       } else {

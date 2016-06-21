@@ -1,5 +1,5 @@
---- /net/minecraft/client/gui
-+++ /net/minecraft/client/gui
+--- /\net\minecraft\client\gui
++++ /\net\minecraft\client\gui
 @@ -185,7 +185,10 @@
     private void addSingleplayerMultiplayerButtons(int var1, int var2) {
        this.buttonList.add(new GuiButton(1, this.width / 2 - 100, var1, I18n.format("menu.singleplayer", new Object[0])));
@@ -12,7 +12,7 @@
     }
  
     private void addDemoButtons(int var1, int var2) {
-@@ -236,6 +239,12 @@
+@@ -236,6 +239,11 @@
           }
        }
  
@@ -21,11 +21,10 @@
 +         this.mc.displayGuiScreen(new xyz.openmodloader.client.gui.GuiOML(this));
 +      }
 +      //OML END
-+
     }
  
     private void switchToRealms() {
-@@ -438,6 +447,12 @@
+@@ -438,6 +446,11 @@
           var8 = var8 + ("release".equalsIgnoreCase(this.mc.getVersionType())?"":"/" + this.mc.getVersionType());
        }
  
@@ -34,7 +33,6 @@
 +         this.drawString(this.fontRendererObj, str, 2, this.height - 20 - (xyz.openmodloader.client.OpenModLoaderClient.getMainMenuStrings().indexOf(str) * 10), -1);
 +      }
 +      //OML END
-+
        this.drawString(this.fontRendererObj, var8, 2, this.height - 10, -1);
        String var9 = "Copyright Mojang AB. Do not distribute!";
        this.drawString(this.fontRendererObj, "Copyright Mojang AB. Do not distribute!", this.width - this.fontRendererObj.getStringWidth("Copyright Mojang AB. Do not distribute!") - 2, this.height - 10, -1);
