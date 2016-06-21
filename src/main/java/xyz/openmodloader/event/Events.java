@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Events<T extends Event> {
     public static final Events<BlockEvent.PlaceEvent> BLOCK_PLACE = new Events<>();
+    public static final Events<BlockEvent.DestroyEvent> BLOCK_DESTROY = new Events<>();
 
     private List<IEventExecutor<T>> executorList = new ArrayList<>();
 

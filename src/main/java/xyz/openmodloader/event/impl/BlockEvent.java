@@ -24,10 +24,11 @@ public class BlockEvent extends Event {
         public void setBlockState(IBlockState state) {
             this.state = state;
         }
+    }
 
-        @Override
-        public boolean isCancelable() {
-            return true;
+    public static class DestroyEvent extends BlockEvent {
+        public DestroyEvent(World world, IBlockState state, BlockPos pos) {
+            super(world, state, pos);
         }
     }
 
@@ -41,5 +42,10 @@ public class BlockEvent extends Event {
 
     public BlockPos getPos() {
         return pos;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

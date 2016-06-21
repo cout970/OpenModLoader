@@ -7,6 +7,8 @@ public class OMLTestMod implements IMod {
     @Override
     public void onEnable() {
         System.out.println("Loading test mod");
-        Events.BLOCK_PLACE.register(event -> System.out.println("Placed block: " + event.getBlockState()));
+        Events.BLOCK_PLACE.register(event -> {
+            System.out.println("Placed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
+        });
     }
 }

@@ -4,7 +4,7 @@
     }
  
     private void startGame() throws LWJGLException {
-+      //OME
++      //OME START
 +      xyz.openmodloader.OpenModLoader.INSTANCE.minecraftConstruction();
 +      //OME END
        this.gameSettings = new GameSettings(this, this.mcDataDir);
