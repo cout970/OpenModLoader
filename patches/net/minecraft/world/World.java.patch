@@ -1,0 +1,12 @@
+--- /\net\minecraft\world
++++ /\net\minecraft\world
+@@ -1836,6 +1836,9 @@
+    }
+ 
+    public void tick() {
++      //OML START
++      xyz.openmodloader.event.Events.WORLD_UPDATE.post(new xyz.openmodloader.event.impl.UpdateEvent.World(this));
++      //OML END
+       this.updateWeather();
+    }
+ 

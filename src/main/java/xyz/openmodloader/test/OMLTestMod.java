@@ -17,12 +17,14 @@ public class OMLTestMod implements IMod {
                 event.setBlockState(Blocks.DIRT.getDefaultState());
             }
         });
+
         Events.BLOCK_DESTROY.register(event -> {
             System.out.println("Destroyed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
             if (event.getBlockState().getBlock() == Blocks.GRASS) {
                 event.setCanceled(true);
             }
         });
+
         Events.OPEN_GUI.register(event -> {
             System.out.println("Opening gui: " + event.getGui());
             if (event.getGui() instanceof GuiLanguage) {

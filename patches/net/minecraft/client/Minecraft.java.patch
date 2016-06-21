@@ -21,3 +21,13 @@
        if(this.currentScreen != null) {
           this.currentScreen.onGuiClosed();
        }
+@@ -904,6 +911,9 @@
+       GlStateManager.enableTexture2D();
+       this.mcProfiler.endSection();
+       if(!this.skipRenderWorld) {
++         //OML START
++         xyz.openmodloader.event.Events.RENDER_UPDATE.post(new xyz.openmodloader.event.impl.UpdateEvent.Render(this.timer.renderPartialTicks));
++         //OML END
+          this.mcProfiler.endStartSection("gameRenderer");
+          this.entityRenderer.updateCameraAndRender(this.timer.renderPartialTicks, var1);
+          this.mcProfiler.endSection();
