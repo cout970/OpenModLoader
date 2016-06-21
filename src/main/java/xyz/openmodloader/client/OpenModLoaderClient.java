@@ -14,6 +14,4 @@ public class OpenModLoaderClient {
         list.add("Open Mod Loader");
         return list;
     }
-
-
 }
