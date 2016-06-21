@@ -1,6 +1,7 @@
 package xyz.openmodloader.event;
 
 import xyz.openmodloader.event.impl.BlockEvent;
+import xyz.openmodloader.event.impl.GuiEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 public class Events<T extends Event> {
     public static final Events<BlockEvent.PlaceEvent> BLOCK_PLACE = new Events<>();
     public static final Events<BlockEvent.DestroyEvent> BLOCK_DESTROY = new Events<>();
+    public static final Events<GuiEvent.OpenEvent> OPEN_GUI = new Events<>();
 
     private List<IEventExecutor<T>> executorList = new ArrayList<>();
 

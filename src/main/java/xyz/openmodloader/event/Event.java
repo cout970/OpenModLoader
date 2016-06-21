@@ -8,6 +8,9 @@ public class Event {
     }
 
     public void setCanceled(boolean canceled) {
+        if (!this.isCancelable()) {
+            throw new RuntimeException("Cannot cancel event " + this);
+        }
         this.canceled = canceled;
     }
 

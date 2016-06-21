@@ -10,3 +10,14 @@
        this.gameSettings = new GameSettings(this, this.mcDataDir);
        this.defaultResourcePacks.add(this.mcDefaultResourcePack);
        this.startTimerHackThread();
+@@ -787,6 +790,10 @@
+    }
+ 
+    public void displayGuiScreen(@Nullable GuiScreen var1) {
++      //OML START
++      xyz.openmodloader.event.impl.GuiEvent.OpenEvent event = new xyz.openmodloader.event.impl.GuiEvent.OpenEvent(var1);
++      if (!xyz.openmodloader.event.Events.OPEN_GUI.post(event)) return; else var1 = event.getGui();
++      //OML END
+       if(this.currentScreen != null) {
+          this.currentScreen.onGuiClosed();
+       }
