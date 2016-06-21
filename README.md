@@ -10,6 +10,6 @@ bash gradlew setupGrass genIdeaRuns --refresh-dependencies
 
 open intelij on the folder
 
-(temp) add a new run config with the main class: GrassClient
+(temp) add a new run config with the main class: xyz.openmodloader.client.RunOMLClient
 
 run
