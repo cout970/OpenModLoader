@@ -9,5 +9,6 @@
 /build
 /.gradle
 *.log
+/crash-reports
 *.reject
 /run/

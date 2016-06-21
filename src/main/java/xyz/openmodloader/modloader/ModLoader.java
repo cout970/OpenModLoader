@@ -46,16 +46,16 @@ public class ModLoader {
             }
         }
 
-        File files = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
-        search(files);
-
-        for (File temp : result) {
-            String entryName = temp.getPath().replace(files.getPath() + "\\", "").replace(".class", "").replace("\\", ".");
-            Class<?> clazz = isModClass(new FileInputStream(temp.getPath()), temp, entryName);
-            if (clazz != null) {
-                mods.add(clazz);
-            }
-        }
+//        File files = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+//        search(files);
+//
+//        for (File temp : result) {
+//            String entryName = temp.getPath().replace(files.getPath() + "\\", "").replace(".class", "").replace("\\", ".");
+//            Class<?> clazz = isModClass(new FileInputStream(temp.getPath()), temp, entryName);
+//            if (clazz != null) {
+//                mods.add(clazz);
+//            }
+//        }
     }
 
     public void registerMods() throws IllegalAccessException, InstantiationException {
