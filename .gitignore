@@ -12,3 +12,6 @@
 /crash-reports
 *.reject
 /run/
+/saves
+/options.txt
+/usercache.json
