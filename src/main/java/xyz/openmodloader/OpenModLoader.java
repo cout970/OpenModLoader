@@ -7,18 +7,16 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 
-
-public class OpenModLoader {
-
-    public static final OpenModLoader INSTANCE = new OpenModLoader();
+public enum OpenModLoader {
+    INSTANCE;
 
     public final EventBus EVENT_BUS = new EventBus();
 
-    private final Logger LOGGER = LogManager.getLogger();
+    public final Logger LOGGER = LogManager.getLogger();
 
     private ModLoader loader;
 
-    public OpenModLoader() {
+    OpenModLoader() {
         EVENT_BUS.register(this);
     }
 

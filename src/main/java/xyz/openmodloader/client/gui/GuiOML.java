@@ -40,11 +40,11 @@ public class GuiOML extends GuiScreen {
 		drawBackground(0);
 		super.drawScreen(mousex, mousey, ticks);
 		this.drawCenteredString(this.fontRendererObj, "Open Mod Loader Settings", this.width / 2, 20, 16777215);
-		this.drawString(this.fontRendererObj, ModLoader.mods.size() + " loaded mod" + (ModLoader.mods.size() > 1 ? "s" : "") + ":", 10, 50, Color.gray.getRGB());
+		this.drawString(this.fontRendererObj, ModLoader.MODS.size() + " loaded mod" + (ModLoader.MODS.size() > 1 ? "s" : "") + ":", 10, 50, Color.gray.getRGB());
 		int i = 0;
-		for(ModContainer mod : ModLoader.mods){
+		for(ModContainer mod : ModLoader.MODS){
 			i++;
-			this.drawString(this.fontRendererObj, mod.name , 15, 70 * i, Color.LIGHT_GRAY.getRGB());
+			this.drawString(this.fontRendererObj, mod.getName() , 15, 70 * i, Color.LIGHT_GRAY.getRGB());
 		}
 
 	}
