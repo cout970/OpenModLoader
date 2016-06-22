@@ -1,5 +1,5 @@
---- /\net\minecraft\entity\boss
-+++ /\net\minecraft\entity\boss
+--- /net/minecraft/entity/boss
++++ /net/minecraft/entity/boss
 @@ -331,7 +331,7 @@
        }
  

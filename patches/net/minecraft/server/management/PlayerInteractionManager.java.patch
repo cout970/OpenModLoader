@@ -1,5 +1,5 @@
---- /\net\minecraft\server\management
-+++ /\net\minecraft\server\management
+--- /net/minecraft/server/management
++++ /net/minecraft/server/management
 @@ -114,7 +114,9 @@
     }
  

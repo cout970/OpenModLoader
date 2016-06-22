@@ -1,5 +1,5 @@
---- /\net\minecraft\server
-+++ /\net\minecraft\server
+--- /net/minecraft/server
++++ /net/minecraft/server
 @@ -684,7 +684,7 @@
           return var5;
        } else {

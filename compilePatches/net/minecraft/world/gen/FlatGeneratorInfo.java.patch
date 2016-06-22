@@ -1,5 +1,5 @@
---- /\net\minecraft\world\gen
-+++ /\net\minecraft\world\gen
+--- /net/minecraft/world/gen
++++ /net/minecraft/world/gen
 @@ -75,7 +75,7 @@
              }
  

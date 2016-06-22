@@ -1,5 +1,5 @@
---- /\net\minecraft\util
-+++ /\net\minecraft\util
+--- /net/minecraft/util
++++ /net/minecraft/util
 @@ -24,7 +24,7 @@
     public V lookup(int var1) {
        int var2 = computeHash(var1);

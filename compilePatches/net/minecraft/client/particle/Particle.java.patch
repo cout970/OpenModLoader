@@ -1,5 +1,5 @@
---- /\net\minecraft\client\particle
-+++ /\net\minecraft\client\particle
+--- /net/minecraft/client/particle
++++ /net/minecraft/client/particle
 @@ -243,7 +243,7 @@
     public void moveEntity(double var1, double var3, double var5) {
        double var9 = var3;

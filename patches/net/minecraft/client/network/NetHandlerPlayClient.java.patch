@@ -1,5 +1,5 @@
---- /\net\minecraft\client\network
-+++ /\net\minecraft\client\network
+--- /net/minecraft/client/network
++++ /net/minecraft/client/network
 @@ -664,10 +664,19 @@
  
     public void handleChat(SPacketChat var1) {

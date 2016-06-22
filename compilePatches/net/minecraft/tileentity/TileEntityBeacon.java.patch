@@ -1,5 +1,5 @@
---- /\net\minecraft\tileentity
-+++ /\net\minecraft\tileentity
+--- /net/minecraft/tileentity
++++ /net/minecraft/tileentity
 @@ -79,7 +79,7 @@
           int var6 = this.pos.getY();
           int var7 = this.pos.getZ();

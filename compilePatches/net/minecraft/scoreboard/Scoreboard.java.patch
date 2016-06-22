@@ -1,5 +1,5 @@
---- /\net\minecraft\scoreboard
-+++ /\net\minecraft\scoreboard
+--- /net/minecraft/scoreboard
++++ /net/minecraft/scoreboard
 @@ -42,7 +42,7 @@
              throw new IllegalArgumentException("An objective with the name \'" + var1 + "\' already exists!");
           } else {

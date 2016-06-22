@@ -1,5 +1,5 @@
---- /\net\minecraft\client\gui
-+++ /\net\minecraft\client\gui
+--- /net/minecraft/client/gui
++++ /net/minecraft/client/gui
 @@ -10,6 +10,7 @@
  import net.minecraft.client.gui.GuiListExtended;
  import net.minecraft.client.gui.GuiListWorldSelectionEntry;

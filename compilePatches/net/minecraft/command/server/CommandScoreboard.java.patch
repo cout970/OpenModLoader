@@ -1,5 +1,5 @@
---- /\net\minecraft\command\server
-+++ /\net\minecraft\command\server
+--- /net/minecraft/command/server
++++ /net/minecraft/command/server
 @@ -228,7 +228,7 @@
        if(var4 < 0) {
           return false;

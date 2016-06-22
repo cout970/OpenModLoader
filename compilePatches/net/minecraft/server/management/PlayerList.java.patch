@@ -1,5 +1,5 @@
---- /\net\minecraft\server\management
-+++ /\net\minecraft\server\management
+--- /net/minecraft/server/management
++++ /net/minecraft/server/management
 @@ -362,7 +362,7 @@
  
     public EntityPlayerMP createPlayerForUser(GameProfile var1) {

@@ -1,5 +1,5 @@
---- /\net\minecraft\inventory
-+++ /\net\minecraft\inventory
+--- /net/minecraft/inventory
++++ /net/minecraft/inventory
 @@ -209,6 +209,10 @@
           if(!this.worldPointer.isRemote) {
              List var6 = this.getEnchantmentList(var3, var2, this.enchantLevels[var2]);

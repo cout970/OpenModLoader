@@ -23,6 +23,7 @@ minecraft {
     version = "1.10"
     mappings = "20160604"
     mappingsGroup = "snapshot_nodoc"
+	genCompilePatches = false
 }
 
 sourceCompatibility = 1.8

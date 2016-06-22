@@ -1,5 +1,5 @@
---- /\net\minecraft\item\crafting
-+++ /\net\minecraft\item\crafting
+--- /net/minecraft/item/crafting
++++ /net/minecraft/item/crafting
 @@ -37,7 +37,7 @@
     }
  

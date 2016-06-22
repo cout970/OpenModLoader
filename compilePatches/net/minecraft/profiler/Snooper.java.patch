@@ -1,5 +1,5 @@
---- /\net\minecraft\profiler
-+++ /\net\minecraft\profiler
+--- /net/minecraft/profiler
++++ /net/minecraft/profiler
 @@ -80,7 +80,7 @@
  
     private void addJvmArgsToSnooper() {

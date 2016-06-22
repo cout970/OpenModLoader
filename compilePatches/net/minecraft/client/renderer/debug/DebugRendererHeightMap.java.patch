@@ -1,5 +1,5 @@
---- /\net\minecraft\client\renderer\debug
-+++ /\net\minecraft\client\renderer\debug
+--- /net/minecraft/client/renderer/debug
++++ /net/minecraft/client/renderer/debug
 @@ -30,7 +30,7 @@
        GlStateManager.tryBlendFuncSeparate(GlStateManager.r.SRC_ALPHA, GlStateManager.l.ONE_MINUS_SRC_ALPHA, GlStateManager.r.ONE, GlStateManager.l.ZERO);
        GlStateManager.disableTexture2D();

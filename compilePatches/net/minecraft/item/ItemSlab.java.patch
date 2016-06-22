@@ -1,5 +1,5 @@
---- /\net\minecraft\item
-+++ /\net\minecraft\item
+--- /net/minecraft/item
++++ /net/minecraft/item
 @@ -100,7 +100,7 @@
        return false;
     }

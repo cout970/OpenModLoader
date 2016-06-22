@@ -1,5 +1,5 @@
---- /\net\minecraft\client\multiplayer
-+++ /\net\minecraft\client\multiplayer
+--- /net/minecraft/client/multiplayer
++++ /net/minecraft/client/multiplayer
 @@ -106,6 +106,9 @@
           }
        }
