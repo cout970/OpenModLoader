@@ -1,5 +1,14 @@
 --- /net/minecraft/client/gui
 +++ /net/minecraft/client/gui
+@@ -90,7 +90,7 @@
+                var2.add(var4);
+             }
+          }
+-
++         xyz.openmodloader.event.Events.SPLASH_LOAD.post(new xyz.openmodloader.event.impl.SplashLoadEvent(var2));
+          if(!var2.isEmpty()) {
+             while(true) {
+                this.splashText = (String)var2.get(RANDOM.nextInt(var2.size()));
 @@ -185,7 +185,10 @@
     private void addSingleplayerMultiplayerButtons(int var1, int var2) {
        this.buttonList.add(new GuiButton(1, this.width / 2 - 100, var1, I18n.format("menu.singleplayer", new Object[0])));

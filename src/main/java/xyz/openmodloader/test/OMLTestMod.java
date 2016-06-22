@@ -45,5 +45,10 @@ public class OMLTestMod implements IMod {
         Events.EXPLOSION.register(event -> {
             event.setCanceled(true);
         });
+
+        Events.SPLASH_LOAD.register(event -> {
+            event.getSplashTexts().clear();
+            event.getSplashTexts().add("OpenModLoader Test!");
+        });
     }
 }
