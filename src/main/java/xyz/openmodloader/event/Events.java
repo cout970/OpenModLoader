@@ -19,7 +19,7 @@ public class Events<T extends Event> {
     public static final Events<UpdateEvent.Entity> ENTITY_UPDATE = new Events<>();
     public static final Events<UpdateEvent.Render> RENDER_UPDATE = new Events<>();
     public static final Events<ChatReceivedEvent> CHAT_RECEIVED = new Events<>();
-    public static final Events<ExplosionEvent> EXPLOSION_EVENT_EVENTS = new Events<>();
+    public static final Events<ExplosionEvent> EXPLOSION_EVENT = new Events<>();
     public static final Events<ItemEnchantedEvent> ITEM_ENCHANTED = new Events<>();
 
     private List<IEventExecutor<T>> executorList = new ArrayList<>();
