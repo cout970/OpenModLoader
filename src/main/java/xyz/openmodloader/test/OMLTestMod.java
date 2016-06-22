@@ -31,5 +31,11 @@ public class OMLTestMod implements IMod {
                 event.setCanceled(true);
             }
         });
+
+        Events.DIG_SPEED.register(event -> {
+            if (event.getBlockState().getBlock() == Blocks.DIRT) {
+                event.setDigSpeed(0.05F);
+            }
+        });
     }
 }

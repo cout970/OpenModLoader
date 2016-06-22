@@ -1,11 +1,32 @@
 --- /\net\minecraft\server\management
 +++ /\net\minecraft\server\management
-@@ -198,6 +198,9 @@
+@@ -114,7 +114,9 @@
+    }
+ 
+    public void onBlockClicked(BlockPos var1, EnumFacing var2) {
+-      if(this.isCreative()) {
++      //OML START
++      if(false) {
++      //OML END
+          if(!this.theWorld.extinguishFire((EntityPlayer)null, var1, var2)) {
+             this.tryHarvestBlock(var1);
+          }
+@@ -148,6 +150,9 @@
+          }
+ 
+          if(var3.getMaterial() != Material.AIR && var7 >= 1.0F) {
++            //OML START
++            if (!this.isCreative() || !this.theWorld.extinguishFire(null, var1, var2))
++            //OML END
+             this.tryHarvestBlock(var1);
+          } else {
+             this.isDestroyingBlock = true;
+@@ -198,6 +203,9 @@
     }
  
     public boolean tryHarvestBlock(BlockPos var1) {
 +      //OML START
-+      if (!xyz.openmodloader.event.Events.BLOCK_DESTROY.post(new xyz.openmodloader.event.impl.BlockEvent.DestroyEvent(this.theWorld, this.theWorld.getBlockState(var1), var1))) return false;
++      if (!xyz.openmodloader.event.Events.BLOCK_DESTROY.post(new xyz.openmodloader.event.impl.BlockEvent.Destroy(this.theWorld, this.theWorld.getBlockState(var1), var1))) return false;
 +      //OML END
        if(this.gameType.isCreative() && this.thisPlayerMP.getHeldItemMainhand() != null && this.thisPlayerMP.getHeldItemMainhand().getItem() instanceof ItemSword) {
           return false;

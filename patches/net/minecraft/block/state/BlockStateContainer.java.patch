@@ -1,0 +1,14 @@
+--- /\net\minecraft\block\state
++++ /\net\minecraft\block\state
+@@ -298,7 +298,10 @@
+       }
+ 
+       public float getPlayerRelativeBlockHardness(EntityPlayer var1, World var2, BlockPos var3) {
+-         return this.block.getPlayerRelativeBlockHardness(this, var1, var2, var3);
++         //OML START
++         xyz.openmodloader.event.impl.BlockEvent.DigSpeed event = new xyz.openmodloader.event.impl.BlockEvent.DigSpeed(var1.isCreative() ? 1.0F : this.block.getPlayerRelativeBlockHardness(this, var1, var2, var3), var2, var2.getBlockState(var3), var3);
++         if (!xyz.openmodloader.event.Events.DIG_SPEED.post(event)) return 0.0F; else return event.getDigSpeed() < 0.0F ? 0.0F : event.getDigSpeed();
++         //OML END
+       }
+ 
+       public int getStrongPower(IBlockAccess var1, BlockPos var2, EnumFacing var3) {

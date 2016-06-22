@@ -16,8 +16,8 @@ public class BlockEvent extends Event {
         this.pos = pos;
     }
 
-    public static class PlaceEvent extends BlockEvent {
-        public PlaceEvent(World world, IBlockState state, BlockPos pos) {
+    public static class Place extends BlockEvent {
+        public Place(World world, IBlockState state, BlockPos pos) {
             super(world, state, pos);
         }
 
@@ -26,9 +26,26 @@ public class BlockEvent extends Event {
         }
     }
 
-    public static class DestroyEvent extends BlockEvent {
-        public DestroyEvent(World world, IBlockState state, BlockPos pos) {
+    public static class Destroy extends BlockEvent {
+        public Destroy(World world, IBlockState state, BlockPos pos) {
             super(world, state, pos);
+        }
+    }
+
+    public static class DigSpeed extends BlockEvent {
+        private float digSpeed;
+
+        public DigSpeed(float digSpeed, World world, IBlockState state, BlockPos pos) {
+            super(world, state, pos);
+            this.digSpeed = digSpeed;
+        }
+
+        public float getDigSpeed() {
+            return digSpeed;
+        }
+
+        public void setDigSpeed(float digSpeed) {
+            this.digSpeed = digSpeed;
         }
     }
 

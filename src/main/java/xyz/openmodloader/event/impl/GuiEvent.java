@@ -10,8 +10,8 @@ public class GuiEvent extends Event {
         this.gui = gui;
     }
 
-    public static class OpenEvent extends GuiEvent {
-        public OpenEvent(GuiScreen gui) {
+    public static class Open extends GuiEvent {
+        public Open(GuiScreen gui) {
             super(gui);
         }
 

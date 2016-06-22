@@ -5,7 +5,7 @@
           int var12 = this.getMetadata(var1.getMetadata());
           IBlockState var13 = this.block.onBlockPlaced(var3, var4, var6, var7, var8, var9, var12, var2);
 +         //OML START
-+         xyz.openmodloader.event.impl.BlockEvent.PlaceEvent event = new xyz.openmodloader.event.impl.BlockEvent.PlaceEvent(var3, var13, var4);
++         xyz.openmodloader.event.impl.BlockEvent.Place event = new xyz.openmodloader.event.impl.BlockEvent.Place(var3, var13, var4);
 +         if (!xyz.openmodloader.event.Events.BLOCK_PLACE.post(event)) return EnumActionResult.FAIL; else var13 = event.getBlockState();
 +         //OML END
           if(var3.setBlockState(var4, var13, 11)) {

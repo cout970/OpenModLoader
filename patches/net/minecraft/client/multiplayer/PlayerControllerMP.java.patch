@@ -5,8 +5,58 @@
        }
  
 +      //OML START
-+      if (!xyz.openmodloader.event.Events.BLOCK_DESTROY.post(new xyz.openmodloader.event.impl.BlockEvent.DestroyEvent(this.mc.theWorld, this.mc.theWorld.getBlockState(var1), var1))) return false;
++      if (!xyz.openmodloader.event.Events.BLOCK_DESTROY.post(new xyz.openmodloader.event.impl.BlockEvent.Destroy(this.mc.theWorld, this.mc.theWorld.getBlockState(var1), var1))) return false;
 +      //OML END
        if(this.currentGameType.isCreative() && this.mc.thePlayer.getHeldItemMainhand() != null && this.mc.thePlayer.getHeldItemMainhand().getItem() instanceof ItemSword) {
           return false;
        } else {
+@@ -161,7 +164,9 @@
+       if(!this.mc.theWorld.getWorldBorder().contains(var1)) {
+          return false;
+       } else {
+-         if(this.currentGameType.isCreative()) {
++         //OML START
++         if(false) {
++         //OML END
+             this.connection.sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.a.START_DESTROY_BLOCK, var1, var2));
+             clickBlockCreative(this.mc, this, var1, var2);
+             this.blockHitDelay = 5;
+@@ -173,11 +178,17 @@
+             this.connection.sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.a.START_DESTROY_BLOCK, var1, var2));
+             IBlockState var5 = this.mc.theWorld.getBlockState(var1);
+             boolean var4 = var5.getMaterial() != Material.AIR;
++            //OML START
++            if (!this.currentGameType.isCreative())
++            //OML END
+             if(var4 && this.curBlockDamageMP == 0.0F) {
+                var5.getBlock().onBlockClicked(this.mc.theWorld, var1, this.mc.thePlayer);
+             }
+ 
+             if(var4 && var5.getPlayerRelativeBlockHardness(this.mc.thePlayer, this.mc.thePlayer.worldObj, var1) >= 1.0F) {
++               //OML START
++               if (this.currentGameType.isCreative()) {clickBlockCreative(this.mc, this, var1, var2); this.blockHitDelay = 5;} else
++               //OML END
+                this.onPlayerDestroyBlock(var1);
+             } else {
+                this.isHittingBlock = true;
+@@ -209,7 +220,9 @@
+       if(this.blockHitDelay > 0) {
+          --this.blockHitDelay;
+          return true;
+-      } else if(this.currentGameType.isCreative() && this.mc.theWorld.getWorldBorder().contains(var1)) {
++      //OML START
++      } else if(false) {
++      //OML END
+          this.blockHitDelay = 5;
+          this.connection.sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.a.START_DESTROY_BLOCK, var1, var2));
+          clickBlockCreative(this.mc, this, var1, var2);
+@@ -231,6 +244,9 @@
+             if(this.curBlockDamageMP >= 1.0F) {
+                this.isHittingBlock = false;
+                this.connection.sendPacket(new CPacketPlayerDigging(CPacketPlayerDigging.a.STOP_DESTROY_BLOCK, var1, var2));
++               //OML START
++               if (this.currentGameType.isCreative()) {clickBlockCreative(this.mc, this, var1, var2);} else
++               //OML END
+                this.onPlayerDestroyBlock(var1);
+                this.curBlockDamageMP = 0.0F;
+                this.stepSoundTickCounter = 0.0F;
