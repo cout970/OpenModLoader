@@ -32,9 +32,7 @@ public class ExplosionEvent extends Event {
     public static Explosion onExplosion(World world, Entity entity, double x, double y, double z, float explosionSize, boolean isFlaming, boolean isSmoking) {
         final ExplosionEvent event = new ExplosionEvent(world,entity,x,y,z,explosionSize, isFlaming, isSmoking);
         Events.EXPLOSION_EVENT_EVENTS.post(event);
-        if(event.isCancelable() && event.isCanceled())
-            return null;
 
-        return new Explosion(event.world, event.entity, event.x, event.y, event.z, event.explosionSize, event.isFlaming, event.isSmoking);
+        return event.isCanceled() ? null : new Explosion(event.world, event.entity, event.x, event.y, event.z, event.explosionSize, event.isFlaming, event.isSmoking);
     }
 }
