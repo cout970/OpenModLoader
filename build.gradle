@@ -7,7 +7,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "ModGradle:ModGradle:0.0.7"
+        classpath "ModGradle:ModGradle:0.0.7.+"
     }
 }
 apply plugin: 'xyz.openmodloader.gradle'
