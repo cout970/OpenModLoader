@@ -7,7 +7,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath "ModGradle:ModGradle:0.0.6.+"
+        classpath "ModGradle:ModGradle:0.0.7"
     }
 }
 apply plugin: 'xyz.openmodloader.gradle'
@@ -17,16 +17,13 @@ apply plugin: 'idea'
 
 group 'OpenModLoader'
 version '1.0-SNAPSHOT'
-
+sourceCompatibility = targetCompatibility = '1.8'
 
 minecraft {
     version = "1.10"
-    mappings = "20160604"
-    mappingsGroup = "snapshot_nodoc"
+    mappings = "snapshot_20160604"
 	genCompilePatches = false
 }
-
-sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
