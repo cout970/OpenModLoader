@@ -37,5 +37,10 @@ public class OMLTestMod implements IMod {
                 event.setDigSpeed(0.05F);
             }
         });
+        
+        Events.ITEM_ENCHANTED.register(event -> {
+        	
+        	System.out.println(event.getItemStack().getDisplayName() + " " + event.getEnchantments().toString());
+        });
     }
 }

@@ -3,6 +3,7 @@ package xyz.openmodloader.event;
 import xyz.openmodloader.event.impl.BlockEvent;
 import xyz.openmodloader.event.impl.ChatReceivedEvent;
 import xyz.openmodloader.event.impl.GuiEvent;
+import xyz.openmodloader.event.impl.ItemEnchantedEvent;
 import xyz.openmodloader.event.impl.UpdateEvent;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class Events<T extends Event> {
     public static final Events<UpdateEvent.Entity> ENTITY_UPDATE = new Events<>();
     public static final Events<UpdateEvent.Render> RENDER_UPDATE = new Events<>();
     public static final Events<ChatReceivedEvent> CHAT_RECEIVED = new Events<>();
+    public static final Events<ItemEnchantedEvent> ITEM_ENCHANTED = new Events<>();
 
     private List<IEventExecutor<T>> executorList = new ArrayList<>();
 
