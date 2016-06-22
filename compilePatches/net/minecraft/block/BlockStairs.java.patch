@@ -1,5 +1,5 @@
---- /net/minecraft/block
-+++ /net/minecraft/block
+--- /\net\minecraft\block
++++ /\net\minecraft\block
 @@ -239,7 +239,7 @@
  
     @Nullable

@@ -1,5 +1,5 @@
---- /net/minecraft/network
-+++ /net/minecraft/network
+--- /\net\minecraft\network
++++ /\net\minecraft\network
 @@ -57,7 +57,7 @@
  import org.apache.logging.log4j.Marker;
  import org.apache.logging.log4j.MarkerManager;

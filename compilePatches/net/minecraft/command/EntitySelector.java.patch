@@ -1,5 +1,5 @@
---- /net/minecraft/command
-+++ /net/minecraft/command
+--- /\net\minecraft\command
++++ /\net\minecraft\command
 @@ -58,7 +58,7 @@
  
     @Nullable

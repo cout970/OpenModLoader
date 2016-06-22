@@ -1,5 +1,5 @@
---- /net/minecraft/block/state
-+++ /net/minecraft/block/state
+--- /\net\minecraft\block\state
++++ /\net\minecraft\block\state
 @@ -65,7 +65,7 @@
  
        this.properties = ImmutableSortedMap.copyOf(var3);

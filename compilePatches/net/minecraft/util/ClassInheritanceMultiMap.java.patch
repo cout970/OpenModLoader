@@ -1,5 +1,5 @@
---- /net/minecraft/util
-+++ /net/minecraft/util
+--- /\net\minecraft\util
++++ /\net\minecraft\util
 @@ -31,7 +31,7 @@
     protected void createLookup(Class<?> var1) {
        ALL_KNOWN.add(var1);

@@ -1,5 +1,5 @@
---- /net/minecraft/world/gen/structure
-+++ /net/minecraft/world/gen/structure
+--- /\net\minecraft\world\gen\structure
++++ /\net\minecraft\world\gen\structure
 @@ -576,7 +576,7 @@
              this.boundingBox = new StructureBoundingBox(var2, 39, var3, var2 + 58 - 1, 61, var3 + 58 - 1);
           }

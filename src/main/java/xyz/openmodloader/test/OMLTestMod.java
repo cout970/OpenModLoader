@@ -42,8 +42,8 @@ public class OMLTestMod implements IMod {
         	System.out.println(event.getItemStack().getDisplayName() + " " + event.getEnchantments().toString());
         });
 
-        Events.EXPLOSION_EVENT.register(event -> {
-            event.setExplosionSize(10);
+        Events.EXPLOSION.register(event -> {
+            event.setCanceled(true);
         });
     }
 }

@@ -1,5 +1,5 @@
---- /net/minecraft/util/datafix
-+++ /net/minecraft/util/datafix
+--- /\net\minecraft\util\datafix
++++ /\net\minecraft\util\datafix
 @@ -92,7 +92,7 @@
     }
  

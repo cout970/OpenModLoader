@@ -10,12 +10,22 @@ import net.minecraft.world.World;
 public class ExplosionEvent extends Event {
     private World world;
     private Entity entity;
-    private Explosion explosion;
+    private double x;
+    private double y;
+    private double z;
+    private float explosionSize;
+    private boolean isFlaming;
+    private boolean isSmoking;
 
-    public ExplosionEvent(World world, Entity entity, Explosion explosion) {
+    public ExplosionEvent(World world, Entity entity, double x, double y, double z, float explosionSize, boolean isFlaming, boolean isSmoking) {
         this.world = world;
         this.entity = entity;
-        this.explosion = explosion;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.explosionSize = explosionSize;
+        this.isFlaming = isFlaming;
+        this.isSmoking = isSmoking;
     }
 
     public World getWorld() {
@@ -26,11 +36,56 @@ public class ExplosionEvent extends Event {
         return entity;
     }
 
-    public Explosion getExplosion() {
-        return explosion;
+    public double getX() {
+        return x;
     }
 
-    public void setExplosion(Explosion explosion) {
-        this.explosion = explosion;
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public double getZ() {
+        return z;
+    }
+
+    public void setZ(double z) {
+        this.z = z;
+    }
+
+    public float getExplosionSize() {
+        return explosionSize;
+    }
+
+    public void setExplosionSize(float explosionSize) {
+        this.explosionSize = explosionSize;
+    }
+
+    public boolean isFlaming() {
+        return isFlaming;
+    }
+
+    public void setFlaming(boolean flaming) {
+        isFlaming = flaming;
+    }
+
+    public boolean isSmoking() {
+        return isSmoking;
+    }
+
+    public void setSmoking(boolean smoking) {
+        isSmoking = smoking;
+    }
+
+    @Override
+    public boolean isCancelable() {
+        return true;
     }
 }

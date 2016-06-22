@@ -1,5 +1,5 @@
---- /net/minecraft/client/renderer/block/model
-+++ /net/minecraft/client/renderer/block/model
+--- /\net\minecraft\client\renderer\block\model
++++ /\net\minecraft\client\renderer\block\model
 @@ -27,6 +27,7 @@
  import java.util.Map.Entry;
  import javax.annotation.Nullable;

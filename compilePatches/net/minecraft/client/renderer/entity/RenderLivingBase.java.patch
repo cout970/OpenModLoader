@@ -1,5 +1,5 @@
---- /net/minecraft/client/renderer/entity
-+++ /net/minecraft/client/renderer/entity
+--- /\net\minecraft\client\renderer\entity
++++ /\net\minecraft\client\renderer\entity
 @@ -37,7 +37,7 @@
     }
  

@@ -1,5 +1,5 @@
---- /net/minecraft/world/storage/loot
-+++ /net/minecraft/world/storage/loot
+--- /\net\minecraft\world\storage\loot
++++ /\net\minecraft\world\storage\loot
 @@ -36,7 +36,7 @@
     }
  

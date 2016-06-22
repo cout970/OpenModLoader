@@ -5,8 +5,8 @@
     public Explosion newExplosion(@Nullable Entity var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
        Explosion var11 = new Explosion(this, var1, var2, var4, var6, var8, var9, var10);
 +      //OML START
-+      xyz.openmodloader.event.impl.ExplosionEvent event = new xyz.openmodloader.event.impl.ExplosionEvent(this, var1, var11);
-+      if (!xyz.openmodloader.event.Events.EXPLOSION.post(event)) return null; else var11 = event.getExplosion();
++      xyz.openmodloader.event.impl.ExplosionEvent event = new xyz.openmodloader.event.impl.ExplosionEvent(this, var1, var2, var4, var6, var8, var9, var10);
++      if (!xyz.openmodloader.event.Events.EXPLOSION.post(event)) return null; else var11 = new Explosion(this, var1, event.getX(), event.getY(), event.getZ(), event.getExplosionSize(), event.isFlaming(), event.isSmoking());
 +      //IML END
        var11.doExplosionA();
        var11.doExplosionB(true);

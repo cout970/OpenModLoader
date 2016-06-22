@@ -1,5 +1,5 @@
---- /net/minecraft/util/math
-+++ /net/minecraft/util/math
+--- /\net\minecraft\util\math
++++ /\net\minecraft\util\math
 @@ -45,7 +45,7 @@
        }
  

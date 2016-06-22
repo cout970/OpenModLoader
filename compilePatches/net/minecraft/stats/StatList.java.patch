@@ -1,5 +1,5 @@
---- /net/minecraft/stats
-+++ /net/minecraft/stats
+--- /\net\minecraft\stats
++++ /\net\minecraft\stats
 @@ -128,7 +128,7 @@
     }
  

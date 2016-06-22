@@ -1,5 +1,5 @@
---- /net/minecraft/entity
-+++ /net/minecraft/entity
+--- /\net\minecraft\entity
++++ /\net\minecraft\entity
 @@ -256,8 +256,8 @@
     }
  

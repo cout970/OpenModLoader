@@ -1,5 +1,5 @@
---- /net/minecraft/client/particle
-+++ /net/minecraft/client/particle
+--- /\net\minecraft\client\particle
++++ /\net\minecraft\client\particle
 @@ -264,7 +264,7 @@
        GlStateManager.blendFunc(GlStateManager.r.SRC_ALPHA, GlStateManager.l.ONE_MINUS_SRC_ALPHA);
        GlStateManager.alphaFunc(516, 0.003921569F);
