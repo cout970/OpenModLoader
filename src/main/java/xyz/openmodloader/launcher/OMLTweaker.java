@@ -40,6 +40,7 @@ public class OMLTweaker implements ITweaker {
 	@Override
 	public void injectIntoClassLoader(LaunchClassLoader classLoader) {
 		classLoader.registerTransformer(OMLClassTransformer.class.getCanonicalName());
+		classLoader.registerTransformer(OMLSideTransformer.class.getCanonicalName());
 	}
 
 	@Override

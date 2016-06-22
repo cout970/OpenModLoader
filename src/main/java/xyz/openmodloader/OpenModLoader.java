@@ -2,6 +2,8 @@ package xyz.openmodloader;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import xyz.openmodloader.event.strippable.Side;
 import xyz.openmodloader.modloader.ModLoader;
 
 import java.io.IOException;
@@ -9,6 +11,7 @@ import java.io.IOException;
 public enum OpenModLoader {
     INSTANCE;
 
+    public static Side SIDE;
     public final Logger LOGGER = LogManager.getLogger();
 
     private ModLoader loader;

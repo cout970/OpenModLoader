@@ -5,11 +5,14 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 
+import xyz.openmodloader.event.strippable.Side;
+import xyz.openmodloader.event.strippable.Strippable;
 import xyz.openmodloader.modloader.ModContainer;
 import xyz.openmodloader.modloader.ModLoader;
 
 import java.awt.*;
 
+@Strippable(side = Side.CLIENT)
 public class GuiOML extends GuiScreen {
 
 	protected GuiScreen prevScreen;
@@ -21,15 +24,14 @@ public class GuiOML extends GuiScreen {
 
 	@Override
 	public void initGui() {
-		backButton = new GuiButton(0, this.width / 2 - 100, this.height - 28, 200, 20, I18n.format("gui.cancel"));
+		this.backButton = new GuiButton(0, this.width / 2 - 100, this.height - 28, 200, 20, I18n.format("gui.cancel"));
 		this.buttonList.add(backButton);
 	}
 
 	@Override
 	protected void actionPerformed(GuiButton button) {
-		if(button == backButton){
+		if(button == this.backButton)
 			Minecraft.getMinecraft().displayGuiScreen(prevScreen);
-		}
 	}
 
 	@Override
@@ -43,6 +45,5 @@ public class GuiOML extends GuiScreen {
 			i++;
 			this.drawString(this.fontRendererObj, mod.getName() , 15, 70 * i, Color.LIGHT_GRAY.getRGB());
 		}
-
 	}
 }

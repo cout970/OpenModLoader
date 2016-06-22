@@ -5,11 +5,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+//DOCME
 @Retention(value = RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.CONSTRUCTOR})
 public @interface Strippable {
 
-    Side value ();
-    String[] mod ();
-    String[] classes ();
+    Side side ();
+
+    String[] mod () default "";
+
+    String[] classes () default "";
 }
