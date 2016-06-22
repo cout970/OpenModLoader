@@ -1,7 +1,10 @@
 package xyz.openmodloader.event.impl;
 
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import xyz.openmodloader.event.Event;
+
+import java.util.List;
 
 public class GuiEvent extends Event {
     protected GuiScreen gui;
@@ -22,6 +25,19 @@ public class GuiEvent extends Event {
         @Override
         public boolean isCancelable() {
             return true;
+        }
+    }
+
+    public static class Init extends GuiEvent {
+        private List<GuiButton> buttonList;
+
+        public Init(GuiScreen gui, List<GuiButton> buttonList) {
+            super(gui);
+            this.buttonList = buttonList;
+        }
+
+        public List<GuiButton> getButtonList() {
+            return buttonList;
         }
     }
 

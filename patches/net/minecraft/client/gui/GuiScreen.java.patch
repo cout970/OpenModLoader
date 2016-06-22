@@ -1,0 +1,13 @@
+--- /net/minecraft/client/gui
++++ /net/minecraft/client/gui
+@@ -370,6 +370,10 @@
+       this.width = var2;
+       this.height = var3;
+       this.buttonList.clear();
++      //OML START
++      xyz.openmodloader.event.impl.GuiEvent.Init event = new xyz.openmodloader.event.impl.GuiEvent.Init(this, this.buttonList);
++      if (!xyz.openmodloader.event.Events.INIT_GUI.post(event)) return; else this.buttonList = event.getButtonList();
++      //OML END
+       this.initGui();
+    }
+ 
