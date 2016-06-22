@@ -2,6 +2,7 @@ package xyz.openmodloader.event.impl;
 
 import net.minecraft.util.text.ITextComponent;
 import xyz.openmodloader.event.Event;
+import xyz.openmodloader.event.strippable.Side;
 
 public class ChatReceivedEvent extends Event {
     private ITextComponent message;
@@ -27,10 +28,5 @@ public class ChatReceivedEvent extends Event {
     @Override
     public boolean isCancelable() {
         return true;
-    }
-
-    public enum Side {
-        SERVER,
-        CLIENT
     }
 }
