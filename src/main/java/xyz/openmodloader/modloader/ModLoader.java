@@ -1,6 +1,9 @@
 package xyz.openmodloader.modloader;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import xyz.openmodloader.OpenModLoader;
 
 import java.io.*;
@@ -17,6 +20,7 @@ public class ModLoader {
     private File runDir = new File(".");
     private File modsDir = new File(runDir, "mods");
     private Gson gson = new Gson();
+    private JsonParser parser = new JsonParser();
 
     public void loadMods() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
         if (this.modsDir.exists()) {
@@ -51,9 +55,19 @@ public class ModLoader {
     }
 
     public void loadMod(InputStream stream) {
-        ModContainer container = this.gson.fromJson(new InputStreamReader(stream), ModContainer.class);
-        OpenModLoader.INSTANCE.LOGGER.info("Found mod " + container.getName() + " (with id " + container.getModID() + ")");
-        ModLoader.MODS.add(container);
+        List<ModContainer> containerList = new ArrayList<>();
+        JsonElement element = this.parser.parse(new InputStreamReader(stream));
+        if (element.isJsonArray()) {
+            for (JsonElement e : element.getAsJsonArray()) {
+                containerList.add(this.gson.fromJson(e, ModContainer.class));
+            }
+        } else {
+            containerList.add(this.gson.fromJson(new InputStreamReader(stream), ModContainer.class));
+        }
+        for (ModContainer container : containerList) {
+            OpenModLoader.INSTANCE.LOGGER.info("Found mod " + container.getName() + " (with id " + container.getModID() + ")");
+            ModLoader.MODS.add(container);
+        }
     }
 
     public void registerMods() throws IllegalAccessException, InstantiationException {
