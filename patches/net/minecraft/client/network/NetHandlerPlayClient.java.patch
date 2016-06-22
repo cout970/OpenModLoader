@@ -1,0 +1,24 @@
+--- /\net\minecraft\client\network
++++ /\net\minecraft\client\network
+@@ -664,10 +664,19 @@
+ 
+    public void handleChat(SPacketChat var1) {
+       PacketThreadUtil.checkThreadAndEnqueue(var1, this, this.gameController);
++      //OML START
++      ITextComponent component = var1.getChatComponent();
++      xyz.openmodloader.event.impl.ChatReceivedEvent event = new xyz.openmodloader.event.impl.ChatReceivedEvent(component, xyz.openmodloader.event.impl.ChatReceivedEvent.Side.CLIENT);
++      if (!xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event)) return; else component = event.getMessage();
++      //OML END
+       if(var1.getType() == 2) {
+-         this.gameController.ingameGUI.setRecordPlaying(var1.getChatComponent(), false);
++         //OML START
++         this.gameController.ingameGUI.setRecordPlaying(component, false);
++         //OML END
+       } else {
+-         this.gameController.ingameGUI.getChatGUI().printChatMessage(var1.getChatComponent());
++         //OML START
++         this.gameController.ingameGUI.getChatGUI().printChatMessage(component);
++         //OML END
+       }
+ 
+    }
