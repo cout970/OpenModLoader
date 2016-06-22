@@ -1,11 +1,6 @@
 package xyz.openmodloader.event;
 
-import xyz.openmodloader.event.impl.BlockEvent;
-import xyz.openmodloader.event.impl.ChatReceivedEvent;
-import xyz.openmodloader.event.impl.GuiEvent;
-import xyz.openmodloader.event.impl.ItemEnchantedEvent;
-import xyz.openmodloader.event.impl.UpdateEvent;
-import xyz.openmodloader.event.impl.ExplosionEvent;
+import xyz.openmodloader.event.impl.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +18,8 @@ public class Events<T extends Event> {
     public static final Events<ChatReceivedEvent> CHAT_RECEIVED = new Events<>();
     public static final Events<ExplosionEvent> EXPLOSION = new Events<>();
     public static final Events<ItemEnchantedEvent> ITEM_ENCHANTED = new Events<>();
+    public static final Events<SplashLoadEvent> SPLASH_LOAD = new Events<>();
+    public static final Events<ScreenshotEvent> SCREENSHOT = new Events<>();
 
     private List<IEventExecutor<T>> executorList = new ArrayList<>();
 

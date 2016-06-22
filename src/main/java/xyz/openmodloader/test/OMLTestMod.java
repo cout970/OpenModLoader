@@ -3,8 +3,12 @@ package xyz.openmodloader.test;
 import net.minecraft.client.gui.GuiLanguage;
 import net.minecraft.client.gui.GuiOptions;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.text.TextComponentString;
 import xyz.openmodloader.event.Events;
 import xyz.openmodloader.modloader.IMod;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class OMLTestMod implements IMod {
     @Override
@@ -44,6 +48,22 @@ public class OMLTestMod implements IMod {
 
         Events.EXPLOSION.register(event -> {
             event.setCanceled(true);
+        });
+
+        Events.SPLASH_LOAD.register(event -> {
+            event.getSplashTexts().clear();
+            event.getSplashTexts().add("OpenModLoader Test!");
+        });
+
+        Events.SCREENSHOT.register(event -> {
+            event.setScreenshotFile(new File("screenshotevent/", event.getScreenshotFile().getName()));
+            event.setResultMessage(new TextComponentString("Screenshot saved to " + event.getScreenshotFile().getPath()));
+            BufferedImage image = event.getImage();
+            for (int x = 0; x < 20; x++) {
+                for (int y = 0; y < 20; y++) {
+                    image.setRGB(x, y, 0xFF0000);
+                }
+            }
         });
     }
 }
