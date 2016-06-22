@@ -31,3 +31,15 @@
           this.mcProfiler.endStartSection("gameRenderer");
           this.entityRenderer.updateCameraAndRender(this.timer.renderPartialTicks, var1);
           this.mcProfiler.endSection();
+@@ -2454,7 +2464,10 @@
+                if(var1 == this.gameSettings.keyBindFullscreen.getKeyCode()) {
+                   this.toggleFullscreen();
+                } else if(var1 == this.gameSettings.keyBindScreenshot.getKeyCode()) {
+-                  this.ingameGUI.getChatGUI().printChatMessage(ScreenShotHelper.saveScreenshot(this.mcDataDir, this.displayWidth, this.displayHeight, this.framebufferMc));
++//                OML START
++                  ITextComponent component = ScreenShotHelper.saveScreenshot(this.mcDataDir, this.displayWidth, this.displayHeight, this.framebufferMc);
++                  if (component != null) this.ingameGUI.getChatGUI().printChatMessage(component);
++//                OML END
+                }
+             }
+ 
