@@ -13,7 +13,7 @@ Warning: Setup for OpenModLoader is not yet fully automated. As the project furt
 # Setup: Eclipse
 Warning: Setup for OpenModLoader is not yet fully automated. As the project further develops the process will become much more streamlined, but for now a tedious setup process is required. This process is for setting up Open Mod Loader as a project developer and should not be used for writing your own mods. There is currently no setup for authoring mods. 
 
-1. Clone this repository using `git cloen https://github.com/OpenModLoader/OpenModLoader` or another preferred method.
+1. Clone this repository using `git clone https://github.com/OpenModLoader/OpenModLoader` or another preferred method.
 2. Run `gradlew setupGrass extractNatives eclipse` in the cloned repository folder.
 3. Open Eclipse and import the cloned directory as a project.
 4. Add `work/src` as a source folder.
