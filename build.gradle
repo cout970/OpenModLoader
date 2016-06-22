@@ -5,9 +5,12 @@ buildscript {
             name = "Modmuss50"
             url = "http://maven.modmuss50.me/"
         }
+        repositories {
+            flatDir dirs: "libs"
+        }
     }
     dependencies {
-        classpath "ModGradle:ModGradle:0.0.7.+"
+        classpath "ModGradle:ModGradle:0.1.0"
     }
 }
 apply plugin: 'xyz.openmodloader.gradle'
