@@ -7,10 +7,10 @@ buildscript {
         }
     }
     dependencies {
-        classpath "GrassGradle:GrassGradle:0.0.4.+"
+        classpath "ModGradle:ModGradle:0.0.5.+"
     }
 }
-apply plugin: 'me.modmuss50.grassgradle'
+apply plugin: 'xyz.openmodloader.gradle'
 
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -38,5 +38,7 @@ repositories {
 
 dependencies {
     compile 'com.google.code.findbugs:jsr305:3.0.1'
-    compile "net.minecraft:launchwrapper:1.11"
+    compile ("net.minecraft:launchwrapper:1.11"){
+        transitive = false
+    }
 }
