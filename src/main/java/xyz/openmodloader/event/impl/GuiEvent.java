@@ -41,6 +41,23 @@ public class GuiEvent extends Event {
         }
     }
 
+    public static class ButtonClick extends GuiEvent {
+        private GuiButton button;
+
+        public ButtonClick(GuiScreen gui, GuiButton button) {
+            super(gui);
+        }
+
+        public GuiButton getButton() {
+            return button;
+        }
+
+        @Override
+        public boolean isCancelable() {
+            return true;
+        }
+    }
+
     public GuiScreen getGui() {
         return gui;
     }
