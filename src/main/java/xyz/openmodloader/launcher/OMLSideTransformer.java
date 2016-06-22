@@ -14,16 +14,14 @@ import jdk.internal.org.objectweb.asm.tree.AnnotationNode;
 import jdk.internal.org.objectweb.asm.tree.ClassNode;
 
 public class OMLSideTransformer implements IClassTransformer {
-
     @Override
-    public byte[] transform (String name, String transformedName, byte[] basicClass) {
+    public byte[] transform(String name, String transformedName, byte[] basicClass) {
         ClassNode classNode = new ClassNode();
         ClassReader classReader = new ClassReader(basicClass);
         classReader.accept(classNode, 0);
 
         if (remove(classNode.visibleAnnotations)) {
-            //TODO Better string
-            throw new RuntimeException(String.format("Wrong side %s, current side is %s", name, OpenModLoader.SIDE));
+            throw new RuntimeException(String.format("Loading class %s on wrong side %s", name, OpenModLoader.SIDE));
         }
 
         classNode.methods.removeIf(method -> remove(method.visibleAnnotations));
@@ -34,7 +32,7 @@ public class OMLSideTransformer implements IClassTransformer {
         return writer.toByteArray();
     }
 
-    public boolean remove (List<AnnotationNode> annotations) {
+    public boolean remove(List<AnnotationNode> annotations) {
         if (annotations != null) {
             for (AnnotationNode annotation : annotations) {
                 if (Type.getType(annotation.desc).equals(Type.getType(Strippable.class))) {
@@ -44,7 +42,8 @@ public class OMLSideTransformer implements IClassTransformer {
                         Object value = values.get(i + 1);
                         if (key instanceof String && ((String) key).equalsIgnoreCase("side")) {
                             if (value instanceof String[]) {
-                                if (!((String[]) value)[1].equalsIgnoreCase(OpenModLoader.SIDE.toString())) {
+                                String side = ((String[]) value)[1];
+                                if (!side.equalsIgnoreCase("universal") && !side.equalsIgnoreCase(OpenModLoader.SIDE.toString())) {
                                     return true;
                                 }
                             }

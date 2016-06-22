@@ -9,10 +9,9 @@ import java.lang.annotation.Target;
 @Retention(value = RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.CONSTRUCTOR})
 public @interface Strippable {
+    Side side() default Side.UNIVERSAL;
 
-    Side side ();
+    String[] mod() default "";
 
-    String[] mod () default "";
-
-    String[] classes () default "";
+    String[] classes() default "";
 }
