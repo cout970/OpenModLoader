@@ -18,7 +18,7 @@ public class ExplosionEvent extends Event {
     private boolean isFlaming;
     private boolean isSmoking;
 
-    public ExplosionEvent (World world, Entity entity, double x, double y, double z, float explosionSize, boolean isFlaming, boolean isSmoking) {
+    public ExplosionEvent(World world, Entity entity, double x, double y, double z, float explosionSize, boolean isFlaming, boolean isSmoking) {
         this.world = world;
         this.entity = entity;
         this.x = x;
@@ -29,63 +29,63 @@ public class ExplosionEvent extends Event {
         this.isSmoking = isSmoking;
     }
 
-    public World getWorld () {
+    public World getWorld() {
         return world;
     }
 
-    public Entity getEntity () {
+    public Entity getEntity() {
         return entity;
     }
 
-    public void setEntity (Entity entity) {
+    public void setEntity(Entity entity) {
         this.entity = entity;
     }
 
-    public double getX () {
+    public double getX() {
         return x;
     }
 
-    public void setX (double x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public double getY () {
+    public double getY() {
         return y;
     }
 
-    public void setY (double y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public double getZ () {
+    public double getZ() {
         return z;
     }
 
-    public void setZ (double z) {
+    public void setZ(double z) {
         this.z = z;
     }
 
-    public float getExplosionSize () {
+    public float getExplosionSize() {
         return explosionSize;
     }
 
-    public void setExplosionSize (float explosionSize) {
+    public void setExplosionSize(float explosionSize) {
         this.explosionSize = explosionSize;
     }
 
-    public boolean isFlaming () {
+    public boolean isFlaming() {
         return isFlaming;
     }
 
-    public void setFlaming (boolean flaming) {
+    public void setFlaming(boolean flaming) {
         isFlaming = flaming;
     }
 
-    public boolean isSmoking () {
+    public boolean isSmoking() {
         return isSmoking;
     }
 
-    public void setSmoking (boolean smoking) {
+    public void setSmoking(boolean smoking) {
         isSmoking = smoking;
     }
 
