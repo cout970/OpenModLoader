@@ -15,7 +15,7 @@ import xyz.openmodloader.event.strippable.Side;
 public class RunOMLClient {
 
     public static void main(String[] args) {
-        System.setProperty("org.lwjgl.librarypath", new File("./.gradle/minecraft/natives/").getAbsolutePath());
+        System.setProperty("org.lwjgl.librarypath", new File("../.gradle/minecraft/natives/").getAbsolutePath());
 
         OpenModLoader.SIDE = Side.CLIENT;
         Launch.main(getArgs());

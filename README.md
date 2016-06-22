@@ -7,8 +7,7 @@ Warning: Setup for OpenModLoader is not yet fully automated. As the project furt
 1. Clone this repository using `git clone https://github.com/OpenModLoader/OpenModLoader` or another preferred method.
 2. Run `gradlew setupOML genIdeaRuns --refresh-dependencies` in the cloned repository folder.
 3. Open IntelliJ on the repository folder.
-4. Add a new run configuration with the main class set to `xyz.openmodloader.client.RunOMLClient`
-5. You should now be able to run Open Mod Loader.
+4. You should now be able to run Open Mod Loader using the pre installed run configuration.
 
 # Setup: Eclipse
 Warning: Setup for OpenModLoader is not yet fully automated. As the project further develops the process will become much more streamlined, but for now a tedious setup process is required. This process is for setting up Open Mod Loader as a project developer and should not be used for writing your own mods. There is currently no setup for authoring mods. 

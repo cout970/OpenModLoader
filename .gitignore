@@ -12,6 +12,7 @@
 /crash-reports
 *.reject
 /run/
+/minecraft/
 /saves
 /options.txt
 /usercache.json
