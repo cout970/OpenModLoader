@@ -65,8 +65,10 @@ public class ModLoader {
             containerList.add(this.gson.fromJson(new InputStreamReader(stream), ModContainer.class));
         }
         for (ModContainer container : containerList) {
-            OpenModLoader.INSTANCE.LOGGER.info("Found mod " + container.getName() + " (with id " + container.getModID() + ")");
-            ModLoader.MODS.add(container);
+            if(container != null){
+                OpenModLoader.INSTANCE.LOGGER.info("Found mod " + container.getName() + " (with id " + container.getModID() + ")");
+                ModLoader.MODS.add(container);
+            }
         }
     }
 
