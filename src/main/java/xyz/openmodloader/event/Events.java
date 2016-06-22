@@ -15,6 +15,8 @@ public class Events<T extends Event> {
     public static final Events<BlockEvent.Destroy> BLOCK_DESTROY = new Events<>();
     public static final Events<BlockEvent.DigSpeed> DIG_SPEED = new Events<>();
     public static final Events<GuiEvent.Open> OPEN_GUI = new Events<>();
+    public static final Events<GuiEvent.Init> INIT_GUI = new Events<>();
+    public static final Events<GuiEvent.ButtonClick> BUTTON_CLICK = new Events<>();
     public static final Events<UpdateEvent.World> WORLD_UPDATE = new Events<>();
     public static final Events<UpdateEvent.Entity> ENTITY_UPDATE = new Events<>();
     public static final Events<UpdateEvent.Render> RENDER_UPDATE = new Events<>();
