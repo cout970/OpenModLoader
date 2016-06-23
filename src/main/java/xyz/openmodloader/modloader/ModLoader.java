@@ -8,10 +8,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import com.google.common.collect.HashBiMap;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -20,7 +23,7 @@ import xyz.openmodloader.OpenModLoader;
 
 public class ModLoader {
     
-    public static List<ModContainer> MODS = new ArrayList<>();
+    public static final Map<String, ModContainer> MODS = new HashMap<String, ModContainer>();
 
     private File runDir = new File(".");
     private File modsDir = new File(runDir, "mods");
@@ -73,19 +76,19 @@ public class ModLoader {
         for (ModContainer container : containerList) {
             if(container != null){
                 OpenModLoader.INSTANCE.LOGGER.info("Found mod " + container.getName() + " (with id " + container.getModID() + ")");
-                ModLoader.MODS.add(container);
+                MODS.put(container.getModID(), container);
             }
         }
     }
 
     public void registerMods() throws IllegalAccessException, InstantiationException {
-        for (ModContainer mod : new ArrayList<>(MODS)) {
+        for (ModContainer mod : MODS.values()) {
             try {
                 mod.getInstance().onEnable();
             } catch (RuntimeException e) {
                 System.err.println("An error occurred while enabling mod " + mod.getModID());
                 e.printStackTrace();
-                ModLoader.MODS.remove(mod);
+                MODS.remove(mod.getModID());
             }
         }
     }
