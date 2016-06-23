@@ -29,4 +29,11 @@ public class ChatReceivedEvent extends Event {
     public boolean isCancelable() {
         return true;
     }
+
+    public static ITextComponent onChatReceived (ITextComponent message, Side side) {
+        ChatReceivedEvent event = new ChatReceivedEvent(message, side);
+        if (xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event))
+            return event.getMessage();
+        return null;
+    }
 }

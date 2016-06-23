@@ -88,4 +88,13 @@ public class ExplosionEvent extends Event {
     public boolean isCancelable() {
         return true;
     }
+    
+    public static Explosion onExplosion (World world, Entity entity, double x, double y, double z, float explosionSize, boolean isFlaming, boolean isSmoking) {
+        ExplosionEvent event = new ExplosionEvent(world, entity, x, y, z, explosionSize, isFlaming, isSmoking);
+
+        if (Events.EXPLOSION.post(event))
+            return null;
+
+        return new Explosion(event.world, event.entity, event.x, event.y, event.z, event.explosionSize, event.isFlaming, event.isSmoking);
+    }
 }
