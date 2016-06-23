@@ -1,36 +1,36 @@
 package xyz.openmodloader.test;
 
-import net.minecraft.client.gui.GuiLanguage;
-import net.minecraft.client.gui.GuiOptions;
-import net.minecraft.init.Blocks;
-import net.minecraft.util.text.TextComponentString;
-import xyz.openmodloader.event.Events;
-import xyz.openmodloader.modloader.IMod;
-
 import java.awt.image.BufferedImage;
 import java.io.File;
+
+import net.minecraft.client.gui.GuiLanguage;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.text.TextComponentString;
+import xyz.openmodloader.OpenModLoader;
+import xyz.openmodloader.event.Events;
+import xyz.openmodloader.modloader.IMod;
 
 public class OMLTestMod implements IMod {
     @Override
     public void onEnable() {
-        System.out.println("Loading test mod");
+        OpenModLoader.INSTANCE.LOGGER.info("Loading test mod");
 
         Events.BLOCK_PLACE.register(event -> {
-            System.out.println("Placed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
+            OpenModLoader.INSTANCE.LOGGER.info("Placed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
             if (event.getBlockState().getBlock() == Blocks.GRASS) {
                 event.setBlockState(Blocks.DIRT.getDefaultState());
             }
         });
 
         Events.BLOCK_DESTROY.register(event -> {
-            System.out.println("Destroyed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
+            OpenModLoader.INSTANCE.LOGGER.info("Destroyed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
             if (event.getBlockState().getBlock() == Blocks.GRASS) {
                 event.setCanceled(true);
             }
         });
 
         Events.OPEN_GUI.register(event -> {
-            System.out.println("Opening gui: " + event.getGui());
+            OpenModLoader.INSTANCE.LOGGER.info("Opening gui: " + event.getGui());
             if (event.getGui() instanceof GuiLanguage) {
                 event.setCanceled(true);
             }
@@ -43,7 +43,7 @@ public class OMLTestMod implements IMod {
         });
         
         Events.ITEM_ENCHANTED.register(event -> {
-        	System.out.println(event.getItemStack().getDisplayName() + " " + event.getEnchantments().toString());
+        	OpenModLoader.INSTANCE.LOGGER.info(event.getItemStack().getDisplayName() + " " + event.getEnchantments().toString());
         });
 
         Events.EXPLOSION.register(event -> {

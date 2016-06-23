@@ -83,8 +83,7 @@ public final class ModLoader {
                 }
             }
         } catch (Exception e) {
-
-            e.printStackTrace();
+            OpenModLoader.INSTANCE.LOGGER.warn(e);
         }
     }
 
