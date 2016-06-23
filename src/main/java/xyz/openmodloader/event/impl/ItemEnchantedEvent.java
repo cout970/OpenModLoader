@@ -116,10 +116,20 @@ public class ItemEnchantedEvent extends Event {
         return true;
     }
 
+    /**
+     * Hook to make related patches much cleaner.
+     * 
+     * @param player The player who enchanted the item.
+     * @param stack The item being enchanted.
+     * @param fuel The item in the fuel slot.
+     * @param levels The amount of levels being paid for the enchantment.
+     * @param enchantments The list of enchantment data being applied to the
+     *        enchanted item.
+     * @return The list of enchantments to apply. If this is null or empty, no
+     *         enchantments should be applied.
+     */
     public static List<EnchantmentData> onItemEnchanted(EntityPlayer player, ItemStack stack, ItemStack fuel, int levels, List<EnchantmentData> enchantments) {
-        ItemEnchantedEvent event = new ItemEnchantedEvent(player, stack, fuel, levels, enchantments);
-        if (!Events.ITEM_ENCHANTED.post(event))
-            return null;
-        return event.getEnchantments();
+        final ItemEnchantedEvent event = new ItemEnchantedEvent(player, stack, fuel, levels, enchantments);
+        return Events.ITEM_ENCHANTED.post(event) ? null : event.getEnchantments();
     }
 }

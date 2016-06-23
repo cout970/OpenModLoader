@@ -4,23 +4,57 @@ import net.minecraft.util.text.ITextComponent;
 import xyz.openmodloader.event.Event;
 import xyz.openmodloader.event.strippable.Side;
 
+/**
+ * An event for when a chat message is received but before it is displayed. This
+ * event works on both the client and server.
+ */
 public class ChatReceivedEvent extends Event {
-    private ITextComponent message;
-    private Side side;
 
+    /**
+     * The message that will be displayed in chat.
+     */
+    private ITextComponent message;
+
+    /**
+     * The side that the event is being fired on. Server/Client
+     */
+    private final Side side;
+
+    /**
+     * Constructs a new event that is fired when a chat message is displayed.
+     * 
+     * @param message The message that was received.
+     * @param side The side that the event is being fired on.
+     */
     public ChatReceivedEvent(ITextComponent message, Side side) {
         this.message = message;
         this.side = side;
     }
 
+    /**
+     * Gets the message that was received.
+     * 
+     * @return The message that was received.
+     */
     public ITextComponent getMessage() {
         return message;
     }
 
+    /**
+     * Sets the message to display in chat to a new one.
+     * 
+     * @param message The new message to display.
+     */
     public void setMessage(ITextComponent message) {
         this.message = message;
     }
 
+    /**
+     * Gets the side that the event is being fired on. Allows for easy
+     * differentiation between client and server.
+     * 
+     * @return
+     */
     public Side getSide() {
         return side;
     }
@@ -30,10 +64,15 @@ public class ChatReceivedEvent extends Event {
         return true;
     }
 
+    /**
+     * Hook to make related patches much cleaner.
+     * 
+     * @param message The message that was received.
+     * @param side The side that it was received on.
+     * @return The message to actually display.
+     */
     public static ITextComponent onChatReceived(ITextComponent message, Side side) {
-        ChatReceivedEvent event = new ChatReceivedEvent(message, side);
-        if (xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event))
-            return event.getMessage();
-        return null;
+        final ChatReceivedEvent event = new ChatReceivedEvent(message, side);
+        return (xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event)) ? event.getMessage() : null;
     }
 }
