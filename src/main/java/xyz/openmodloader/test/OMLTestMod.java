@@ -1,14 +1,15 @@
 package xyz.openmodloader.test;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-
 import net.minecraft.client.gui.GuiLanguage;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentString;
 import xyz.openmodloader.OpenModLoader;
 import xyz.openmodloader.event.Events;
 import xyz.openmodloader.modloader.IMod;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class OMLTestMod implements IMod {
     @Override
@@ -64,6 +65,11 @@ public class OMLTestMod implements IMod {
                     image.setRGB(x, y, 0xFF0000);
                 }
             }
+        });
+
+        Events.HARVEST_DROPS.register(event -> {
+            OpenModLoader.INSTANCE.LOGGER.info("Dropping items: "+event.getFinalDrops()+" from original items: "+event.getInitialDrops()+", with fortune: "+event.getFortune()+", with chance: "+event.getChance());
+            event.getFinalDrops().add(new ItemStack(Blocks.DIRT));
         });
     }
 }

@@ -10,6 +10,7 @@ public class Events<T extends Event> {
     public static final Events<BlockEvent.Place> BLOCK_PLACE = new Events<>();
     public static final Events<BlockEvent.Destroy> BLOCK_DESTROY = new Events<>();
     public static final Events<BlockEvent.DigSpeed> DIG_SPEED = new Events<>();
+    public static final Events<BlockEvent.HarvestDrops> HARVEST_DROPS = new Events<>();
     public static final Events<GuiEvent.Open> OPEN_GUI = new Events<>();
     public static final Events<GuiEvent.Init> INIT_GUI = new Events<>();
     public static final Events<GuiEvent.ButtonClick> BUTTON_CLICK = new Events<>();
