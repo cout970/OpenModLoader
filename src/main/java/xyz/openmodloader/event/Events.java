@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Events<T extends Event> {
+    
     public static final Events<BlockEvent.Place> BLOCK_PLACE = new Events<>();
     public static final Events<BlockEvent.Destroy> BLOCK_DESTROY = new Events<>();
     public static final Events<BlockEvent.DigSpeed> DIG_SPEED = new Events<>();
@@ -36,7 +37,7 @@ public class Events<T extends Event> {
      * Post an event to all its executors.
      *
      * @param event the event instance
-     * @return true is the event <strong>isn't</strong> canceled
+     * @return true if the event <strong>isn't</strong> canceled
      */
     public boolean post(T event) {
         for (IEventExecutor<T> executor : this.executorList) {
