@@ -1,7 +1,5 @@
-[
-  {
-    "main_class": "xyz.openmodloader.test.OMLTestMod",
-    "id": "test",
-    "name": "Test"
-  }
-]
+{
+  "main_class": "xyz.openmodloader.test.OMLTestMod",
+  "id": "test",
+  "name": "Test"
+}
