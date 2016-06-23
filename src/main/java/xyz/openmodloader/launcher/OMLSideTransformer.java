@@ -7,13 +7,14 @@ import xyz.openmodloader.event.strippable.Strippable;
 
 import net.minecraft.launchwrapper.IClassTransformer;
 
-import jdk.internal.org.objectweb.asm.ClassReader;
-import jdk.internal.org.objectweb.asm.ClassWriter;
-import jdk.internal.org.objectweb.asm.Type;
-import jdk.internal.org.objectweb.asm.tree.AnnotationNode;
-import jdk.internal.org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.ClassReader;
+import org.objectweb.asm.ClassWriter;
+import org.objectweb.asm.Type;
+import org.objectweb.asm.tree.AnnotationNode;
+import org.objectweb.asm.tree.ClassNode;
 
 public class OMLSideTransformer implements IClassTransformer {
+
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass) {
         ClassNode classNode = new ClassNode();
