@@ -2,7 +2,6 @@ package xyz.openmodloader.modloader;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -14,80 +13,116 @@ import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-import com.google.common.collect.HashBiMap;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 import xyz.openmodloader.OpenModLoader;
 
-public class ModLoader {
-    
+public final class ModLoader {
+
+    /**
+     * A map of all loaded mods. Key is the ID and value is the ModContainer.
+     */
     public static final Map<String, ModContainer> MODS = new HashMap<String, ModContainer>();
 
-    private File runDir = new File(".");
-    private File modsDir = new File(runDir, "mods");
-    private Gson gson = new Gson();
-    private JsonParser parser = new JsonParser();
+    /**
+     * The running directory for the game.
+     */
+    private static final File RUN_DIRECTORY = new File(".");
 
-    public void loadMods() throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-        if (this.modsDir.exists()) {
-            File[] files = this.modsDir.listFiles();
-            if (files != null) {
-                for (File mod : files) {
-                    if (mod.getName().endsWith(".jar")) {
-                        JarFile jar = new JarFile(mod);
-                        for (JarEntry entry : Collections.list(jar.entries())) {
-                            String fileName = entry.getName();
-                            if (fileName.equals("mod.json")) {
-                                this.loadMod(jar.getInputStream(entry));
+    /**
+     * The directory to load mods from.
+     */
+    private static final File MOD_DIRECTORY = new File(RUN_DIRECTORY, "mods");
+
+    /**
+     * GSON instance used by loader to read mod.json file.
+     */
+    private static final Gson GSON = new Gson();
+
+    /**
+     * Json parser instance used by loader to read mod.json file.
+     */
+    private static final JsonParser PARSER = new JsonParser();
+
+    /**
+     * Attempts to load all mods from the mods directory. While this is public,
+     * it is intended for internal use only!
+     */
+    public static void loadMods() {
+        try {
+            if (MOD_DIRECTORY.exists()) {
+                File[] files = MOD_DIRECTORY.listFiles();
+                if (files != null) {
+                    for (File mod : files) {
+                        if (mod.getName().endsWith(".jar")) {
+                            JarFile jar = new JarFile(mod);
+                            for (JarEntry entry : Collections.list(jar.entries())) {
+                                String fileName = entry.getName();
+                                if (fileName.equals("mod.json")) {
+                                    loadMod(jar.getInputStream(entry));
+                                }
                             }
+                            jar.close();
                         }
-                        jar.close();
                     }
                 }
             }
-        }
 
-        URL roots = this.getClass().getClassLoader().getResource("");
-        if (roots != null) {
-            File root = new File(roots.getPath());
-            File[] files = root.listFiles();
-            if (files != null) {
-                for (File file : files) {
-                    if (file.getName().equals("mod.json")) {
-                        this.loadMod(new FileInputStream(file));
+            URL roots = ModLoader.class.getClassLoader().getResource("");
+            if (roots != null) {
+                File root = new File(roots.getPath());
+                File[] files = root.listFiles();
+                if (files != null) {
+                    for (File file : files) {
+                        if (file.getName().equals("mod.json")) {
+                            loadMod(new FileInputStream(file));
+                        }
                     }
                 }
             }
+        } catch (Exception e) {
+
+            e.printStackTrace();
         }
     }
 
-    public void loadMod(InputStream stream) {
+    /**
+     * Attempts to load a mod from an input stream. This will parse the
+     * mods.json file and add the mod to {@link #MODS}.
+     * 
+     * @param stream The input stream to read the mod data from.
+     */
+    private static void loadMod(InputStream stream) {
         List<ModContainer> containerList = new ArrayList<>();
-        JsonElement element = this.parser.parse(new InputStreamReader(stream));
+        JsonElement element = PARSER.parse(new InputStreamReader(stream));
         if (element.isJsonArray()) {
             for (JsonElement e : element.getAsJsonArray()) {
-                containerList.add(this.gson.fromJson(e, ModContainer.class));
+                containerList.add(GSON.fromJson(e, ModContainer.class));
             }
         } else {
-            containerList.add(this.gson.fromJson(new InputStreamReader(stream), ModContainer.class));
+            containerList.add(GSON.fromJson(new InputStreamReader(stream), ModContainer.class));
         }
         for (ModContainer container : containerList) {
-            if(container != null){
+            if (container != null) {
                 OpenModLoader.INSTANCE.LOGGER.info("Found mod " + container.getName() + " (with id " + container.getModID() + ")");
                 MODS.put(container.getModID(), container);
             }
         }
     }
 
-    public void registerMods() throws IllegalAccessException, InstantiationException {
+    /**
+     * Iterates through all registered mods and enables them. If there is an
+     * issue in registering the mod, it will be disabled.
+     */
+    public static void registerMods() {
         for (ModContainer mod : MODS.values()) {
             try {
                 mod.getInstance().onEnable();
             } catch (RuntimeException e) {
-                System.err.println("An error occurred while enabling mod " + mod.getModID());
-                e.printStackTrace();
+                OpenModLoader.INSTANCE.LOGGER.warn("An error occurred while enabling mod " + mod.getModID());
+                OpenModLoader.INSTANCE.LOGGER.warn(e);
                 MODS.remove(mod.getModID());
             }
         }
