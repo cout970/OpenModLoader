@@ -1,10 +1,10 @@
 package xyz.openmodloader.event.impl;
 
+import java.util.List;
+
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import xyz.openmodloader.event.Event;
-
-import java.util.List;
 
 public class GuiEvent extends Event {
     protected GuiScreen gui;

@@ -1,11 +1,10 @@
 package xyz.openmodloader.event.impl;
 
-import xyz.openmodloader.event.Event;
-import xyz.openmodloader.event.Events;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import xyz.openmodloader.event.Event;
+import xyz.openmodloader.event.Events;
 
 public class ExplosionEvent extends Event {
     private World world;
@@ -88,8 +87,8 @@ public class ExplosionEvent extends Event {
     public boolean isCancelable() {
         return true;
     }
-    
-    public static Explosion onExplosion (World world, Entity entity, double x, double y, double z, float explosionSize, boolean isFlaming, boolean isSmoking) {
+
+    public static Explosion onExplosion(World world, Entity entity, double x, double y, double z, float explosionSize, boolean isFlaming, boolean isSmoking) {
         ExplosionEvent event = new ExplosionEvent(world, entity, x, y, z, explosionSize, isFlaming, isSmoking);
 
         if (Events.EXPLOSION.post(event))

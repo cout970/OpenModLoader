@@ -1,7 +1,8 @@
 package xyz.openmodloader.event.impl;
 
-import xyz.openmodloader.event.Event;
 import java.util.List;
+
+import xyz.openmodloader.event.Event;
 
 public class SplashLoadEvent extends Event {
     private final List<String> splashTexts;

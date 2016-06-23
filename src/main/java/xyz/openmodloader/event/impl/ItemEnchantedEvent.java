@@ -43,10 +43,10 @@ public class ItemEnchantedEvent extends Event {
     /**
      * Constructs an event that is fired when the player enchants an item.
      *
-     * @param player       The player enchanting the item.
-     * @param stack        The ItemStack being enchanted.
-     * @param fuel         The ItemStack in the fuel/lapis slot.
-     * @param levels       The experience level cost for the enchantment.
+     * @param player The player enchanting the item.
+     * @param stack The ItemStack being enchanted.
+     * @param fuel The ItemStack in the fuel/lapis slot.
+     * @param levels The experience level cost for the enchantment.
      * @param enchantments A list of enchantment data being applied to the item.
      */
     public ItemEnchantedEvent(EntityPlayer player, ItemStack stack, ItemStack fuel, int levels, List<EnchantmentData> enchantments) {
@@ -116,7 +116,7 @@ public class ItemEnchantedEvent extends Event {
         return true;
     }
 
-    public static List<EnchantmentData> onItemEnchanted (EntityPlayer player, ItemStack stack, ItemStack fuel, int levels, List<EnchantmentData> enchantments) {
+    public static List<EnchantmentData> onItemEnchanted(EntityPlayer player, ItemStack stack, ItemStack fuel, int levels, List<EnchantmentData> enchantments) {
         ItemEnchantedEvent event = new ItemEnchantedEvent(player, stack, fuel, levels, enchantments);
         if (!Events.ITEM_ENCHANTED.post(event))
             return null;

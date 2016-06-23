@@ -30,7 +30,7 @@ public class ChatReceivedEvent extends Event {
         return true;
     }
 
-    public static ITextComponent onChatReceived (ITextComponent message, Side side) {
+    public static ITextComponent onChatReceived(ITextComponent message, Side side) {
         ChatReceivedEvent event = new ChatReceivedEvent(message, side);
         if (xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event))
             return event.getMessage();
