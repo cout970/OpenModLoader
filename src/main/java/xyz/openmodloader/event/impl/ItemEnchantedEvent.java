@@ -5,8 +5,8 @@ import java.util.List;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import xyz.openmodloader.OpenModLoader;
 import xyz.openmodloader.event.Event;
-import xyz.openmodloader.event.Events;
 
 /**
  * Fired when the player enchants an item. Allows for the cost and enchantments
@@ -130,6 +130,6 @@ public class ItemEnchantedEvent extends Event {
      */
     public static List<EnchantmentData> onItemEnchanted(EntityPlayer player, ItemStack stack, ItemStack fuel, int levels, List<EnchantmentData> enchantments) {
         final ItemEnchantedEvent event = new ItemEnchantedEvent(player, stack, fuel, levels, enchantments);
-        return Events.ITEM_ENCHANTED.post(event) ? event.getEnchantments() : null;
+        return OpenModLoader.INSTANCE.EVENT_BUS.post(event) ? event.getEnchantments() : null;
     }
 }

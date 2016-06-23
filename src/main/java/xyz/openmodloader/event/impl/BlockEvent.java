@@ -5,8 +5,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import xyz.openmodloader.OpenModLoader;
 import xyz.openmodloader.event.Event;
-import xyz.openmodloader.event.Events;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -83,7 +83,7 @@ public class BlockEvent extends Event {
          */
         public static IBlockState onPlace(World world, IBlockState state, BlockPos pos) {
             xyz.openmodloader.event.impl.BlockEvent.Place event = new xyz.openmodloader.event.impl.BlockEvent.Place(world, state, pos);
-            return xyz.openmodloader.event.Events.BLOCK_PLACE.post(event) ? event.getBlockState() : null;
+            return OpenModLoader.INSTANCE.EVENT_BUS.post(event) ? event.getBlockState() : null;
         }
     }
 
@@ -158,7 +158,7 @@ public class BlockEvent extends Event {
          */
         public static float onDig(float digSpeed, World world, IBlockState state, BlockPos pos) {
             DigSpeed event = new DigSpeed(digSpeed, world, state, pos);
-            return Events.DIG_SPEED.post(event) || event.getDigSpeed() < 0F ? 0f : event.getDigSpeed();
+            return OpenModLoader.INSTANCE.EVENT_BUS.post(event) || event.getDigSpeed() < 0F ? 0f : event.getDigSpeed();
         }
     }
 
@@ -264,7 +264,7 @@ public class BlockEvent extends Event {
             List<ItemStack> finalDrops = initialDrops.stream().filter(stack -> world.rand.nextFloat() <= chance)
                     .map(ItemStack::copy).collect(Collectors.toCollection(LinkedList::new));
             BlockEvent.HarvestDrops event = new xyz.openmodloader.event.impl.BlockEvent.HarvestDrops(world, state, pos, chance, fortune, ImmutableList.copyOf(initialDrops), finalDrops);
-            Events.HARVEST_DROPS.post(event);
+            OpenModLoader.INSTANCE.EVENT_BUS.post(event);
             return event.getFinalDrops();
         }
     }

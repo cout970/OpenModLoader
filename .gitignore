@@ -2,7 +2,7 @@
 /bin
 /build
 /logs
-/minecraft 
+/minecraft/*
 /out
 /run
 
