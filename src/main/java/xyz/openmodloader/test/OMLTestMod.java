@@ -1,5 +1,8 @@
 package xyz.openmodloader.test;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -58,12 +61,11 @@ public class OMLTestMod implements IMod {
         Events.SCREENSHOT.register(event -> {
             event.setScreenshotFile(new File("screenshotevent/", event.getScreenshotFile().getName()));
             event.setResultMessage(new TextComponentString("Screenshot saved to " + event.getScreenshotFile().getPath()));
-            BufferedImage image = event.getImage();
-            for (int x = 0; x < 20; x++) {
-                for (int y = 0; y < 20; y++) {
-                    image.setRGB(x, y, 0xFF0000);
-                }
-            }
+            final BufferedImage image = event.getImage();
+            final Graphics graphics = image.createGraphics();
+            graphics.setColor(Color.RED);
+            graphics.setFont(new Font("Arial Black", Font.BOLD, 20));
+            graphics.drawString("Open Mod Loader", 20, 40);
         });
     }
 }
