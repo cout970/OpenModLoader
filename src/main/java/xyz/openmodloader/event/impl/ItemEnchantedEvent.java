@@ -115,4 +115,11 @@ public class ItemEnchantedEvent extends Event {
     public boolean isCancelable() {
         return true;
     }
+
+    public static List<EnchantmentData> onItemEnchanted (EntityPlayer player, ItemStack stack, ItemStack fuel, int levels, List<EnchantmentData> enchantments) {
+        ItemEnchantedEvent event = new ItemEnchantedEvent(player, stack, fuel, levels, enchantments);
+        if (!Events.ITEM_ENCHANTED.post(event))
+            return null;
+        return event.getEnchantments();
+    }
 }

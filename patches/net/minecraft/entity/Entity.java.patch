@@ -1,12 +1,10 @@
 --- /net/minecraft/entity
 +++ /net/minecraft/entity
-@@ -308,6 +308,9 @@
+@@ -308,6 +308,7 @@
     }
  
     public void onUpdate() {
-+      //OML START
 +      xyz.openmodloader.event.Events.ENTITY_UPDATE.post(new xyz.openmodloader.event.impl.UpdateEvent.Entity(this.worldObj, this));
-+      //OML END
        if(!this.worldObj.isRemote) {
           this.setFlag(6, this.isGlowing());
        }

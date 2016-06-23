@@ -1,13 +1,10 @@
 --- /net/minecraft/inventory
 +++ /net/minecraft/inventory
-@@ -209,6 +209,10 @@
+@@ -209,6 +209,7 @@
           if(!this.worldPointer.isRemote) {
              List var6 = this.getEnchantmentList(var3, var2, this.enchantLevels[var2]);
              boolean var7 = var3.getItem() == Items.BOOK;
-+            //OML START
-+            xyz.openmodloader.event.impl.ItemEnchantedEvent event = new xyz.openmodloader.event.impl.ItemEnchantedEvent(var1, var3, var4, var5, var6);
-+            if (!xyz.openmodloader.event.Events.ITEM_ENCHANTED.post(event)) var6 = null; else var6 = event.getEnchantments();
-+            //OML END
++            var6 = xyz.openmodloader.event.impl.ItemEnchantedEvent.onItemEnchanted(var1, var3, var4, var5, var6);
              if(var6 != null) {
                 var1.removeExperienceLevel(var5);
                 if(var7) {

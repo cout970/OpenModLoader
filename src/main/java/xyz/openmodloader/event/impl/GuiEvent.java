@@ -26,6 +26,13 @@ public class GuiEvent extends Event {
         public boolean isCancelable() {
             return true;
         }
+
+        public static GuiScreen onOpen (GuiScreen gui) {
+            GuiEvent.Open event = new GuiEvent.Open(gui);
+            if (!xyz.openmodloader.event.Events.OPEN_GUI.post(event))
+                return null;
+            return event.getGui();
+        }
     }
 
     public static class Init extends GuiEvent {
