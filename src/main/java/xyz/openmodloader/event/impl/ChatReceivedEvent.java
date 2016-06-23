@@ -53,7 +53,7 @@ public class ChatReceivedEvent extends Event {
      * Gets the side that the event is being fired on. Allows for easy
      * differentiation between client and server.
      * 
-     * @return
+     * @return The side where the event was fired.
      */
     public Side getSide() {
         return side;
@@ -73,6 +73,6 @@ public class ChatReceivedEvent extends Event {
      */
     public static ITextComponent onChatReceived(ITextComponent message, Side side) {
         final ChatReceivedEvent event = new ChatReceivedEvent(message, side);
-        return !xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event) ? event.getMessage() : null;
+        return xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event) ? event.getMessage() : null;
     }
 }
