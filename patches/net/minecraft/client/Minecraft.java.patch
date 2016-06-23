@@ -21,7 +21,7 @@
        GlStateManager.enableTexture2D();
        this.mcProfiler.endSection();
        if(!this.skipRenderWorld) {
-+         xyz.openmodloader.event.Events.RENDER_UPDATE.post(new xyz.openmodloader.event.impl.UpdateEvent.Render(this.timer.renderPartialTicks));
++         xyz.openmodloader.event.Events.RENDER_UPDATE.post(new xyz.openmodloader.event.impl.UpdateEvent.RenderUpdate(this.timer.renderPartialTicks));
           this.mcProfiler.endStartSection("gameRenderer");
           this.entityRenderer.updateCameraAndRender(this.timer.renderPartialTicks, var1);
           this.mcProfiler.endSection();

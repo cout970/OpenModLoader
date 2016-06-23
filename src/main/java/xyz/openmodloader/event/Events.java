@@ -13,9 +13,9 @@ public class Events<T extends Event> {
     public static final Events<GuiEvent.Open> OPEN_GUI = new Events<>();
     public static final Events<GuiEvent.Init> INIT_GUI = new Events<>();
     public static final Events<GuiEvent.ButtonClick> BUTTON_CLICK = new Events<>();
-    public static final Events<UpdateEvent.World> WORLD_UPDATE = new Events<>();
-    public static final Events<UpdateEvent.Entity> ENTITY_UPDATE = new Events<>();
-    public static final Events<UpdateEvent.Render> RENDER_UPDATE = new Events<>();
+    public static final Events<UpdateEvent.WorldUpdate> WORLD_UPDATE = new Events<>();
+    public static final Events<UpdateEvent.EntityUpdate> ENTITY_UPDATE = new Events<>();
+    public static final Events<UpdateEvent.RenderUpdate> RENDER_UPDATE = new Events<>();
     public static final Events<ChatReceivedEvent> CHAT_RECEIVED = new Events<>();
     public static final Events<ExplosionEvent> EXPLOSION = new Events<>();
     public static final Events<ItemEnchantedEvent> ITEM_ENCHANTED = new Events<>();

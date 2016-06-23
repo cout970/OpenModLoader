@@ -15,7 +15,7 @@
  
     public void tick() {
 +      //OML START
-+      xyz.openmodloader.event.Events.WORLD_UPDATE.post(new xyz.openmodloader.event.impl.UpdateEvent.World(this));
++      xyz.openmodloader.event.Events.WORLD_UPDATE.post(new xyz.openmodloader.event.impl.UpdateEvent.WorldUpdate(this));
 +      //OML END
        this.updateWeather();
     }
