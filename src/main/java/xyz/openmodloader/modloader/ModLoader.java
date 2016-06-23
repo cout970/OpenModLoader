@@ -1,12 +1,10 @@
 package xyz.openmodloader.modloader;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import xyz.openmodloader.OpenModLoader;
-
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,7 +12,14 @@ import java.util.List;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
+import xyz.openmodloader.OpenModLoader;
+
 public class ModLoader {
+    
     public static List<ModContainer> MODS = new ArrayList<>();
 
     private File runDir = new File(".");
@@ -35,6 +40,7 @@ public class ModLoader {
                                 this.loadMod(jar.getInputStream(entry));
                             }
                         }
+                        jar.close();
                     }
                 }
             }
