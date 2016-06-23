@@ -3,8 +3,8 @@ package xyz.openmodloader.event.impl;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import xyz.openmodloader.OpenModLoader;
 import xyz.openmodloader.event.Event;
-import xyz.openmodloader.event.Events;
 
 public class ExplosionEvent extends Event {
 
@@ -217,6 +217,6 @@ public class ExplosionEvent extends Event {
      */
     public static Explosion onExplosion(World world, Entity entity, double x, double y, double z, float explosionSize, boolean isFlaming, boolean isSmoking) {
         ExplosionEvent event = new ExplosionEvent(world, entity, x, y, z, explosionSize, isFlaming, isSmoking);
-        return Events.EXPLOSION.post(event) ? new Explosion(event.world, event.entity, event.x, event.y, event.z, event.explosionSize, event.isFlaming, event.isSmoking) : null;
+        return OpenModLoader.INSTANCE.EVENT_BUS.post(event) ? new Explosion(event.world, event.entity, event.x, event.y, event.z, event.explosionSize, event.isFlaming, event.isSmoking) : null;
     }
 }

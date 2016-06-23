@@ -10,7 +10,7 @@ import net.minecraft.client.gui.GuiLanguage;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.text.TextComponentString;
 import xyz.openmodloader.OpenModLoader;
-import xyz.openmodloader.event.Events;
+import xyz.openmodloader.event.impl.*;
 import xyz.openmodloader.modloader.IMod;
 
 public class OMLTestMod implements IMod {
@@ -18,54 +18,68 @@ public class OMLTestMod implements IMod {
     public void onEnable() {
         OpenModLoader.INSTANCE.LOGGER.info("Loading test mod");
 
-        Events.BLOCK_PLACE.register(event -> {
-            OpenModLoader.INSTANCE.LOGGER.info("Placed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
-            if (event.getBlockState().getBlock() == Blocks.GRASS) {
-                event.setBlockState(Blocks.DIRT.getDefaultState());
-            }
-        });
+        OpenModLoader.INSTANCE.EVENT_BUS.register(BlockEvent.Place.class, this::onBlockPlace);
+        OpenModLoader.INSTANCE.EVENT_BUS.register(BlockEvent.Destroy.class, this::onBlockDestroy);
+        OpenModLoader.INSTANCE.EVENT_BUS.register(BlockEvent.DigSpeed.class, this::onBlockDigSpeed);
 
-        Events.BLOCK_DESTROY.register(event -> {
-            OpenModLoader.INSTANCE.LOGGER.info("Destroyed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
-            if (event.getBlockState().getBlock() == Blocks.GRASS) {
-                event.setCanceled(true);
-            }
-        });
+        OpenModLoader.INSTANCE.EVENT_BUS.register(GuiEvent.Open.class, this::onGuiOpen);
 
-        Events.OPEN_GUI.register(event -> {
-            OpenModLoader.INSTANCE.LOGGER.info("Opening gui: " + event.getGui());
-            if (event.getGui() instanceof GuiLanguage) {
-                event.setCanceled(true);
-            }
-        });
+        OpenModLoader.INSTANCE.EVENT_BUS.register(ItemEnchantedEvent.class, this::onItemEnchanted);
 
-        Events.DIG_SPEED.register(event -> {
-            if (event.getBlockState().getBlock() == Blocks.DIRT) {
-                event.setDigSpeed(0.05F);
-            }
-        });
-        
-        Events.ITEM_ENCHANTED.register(event -> {
-        	OpenModLoader.INSTANCE.LOGGER.info(event.getItemStack().getDisplayName() + " " + event.getEnchantments().toString());
-        });
+        OpenModLoader.INSTANCE.EVENT_BUS.register(ExplosionEvent.class, this::onExplosion);
 
-        Events.EXPLOSION.register(event -> {
+        OpenModLoader.INSTANCE.EVENT_BUS.register(SplashLoadEvent.class, this::onSplashLoad);
+
+        OpenModLoader.INSTANCE.EVENT_BUS.register(ScreenshotEvent.class, this::onScreenshot);
+    }
+
+    private void onBlockPlace(BlockEvent.Place event) {
+        OpenModLoader.INSTANCE.LOGGER.info("Placed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
+        if (event.getBlockState().getBlock() == Blocks.GRASS) {
+            event.setBlockState(Blocks.DIRT.getDefaultState());
+        }
+    }
+
+    private void onBlockDestroy(BlockEvent.Destroy event) {
+        OpenModLoader.INSTANCE.LOGGER.info("Destroyed block: " + event.getBlockState() + " isRemote: " + event.getWorld().isRemote);
+        if (event.getBlockState().getBlock() == Blocks.GRASS) {
             event.setCanceled(true);
-        });
+        }
+    }
 
-        Events.SPLASH_LOAD.register(event -> {
-            event.getSplashTexts().clear();
-            event.getSplashTexts().add("OpenModLoader Test!");
-        });
+    private void onBlockDigSpeed(BlockEvent.DigSpeed event) {
+        if (event.getBlockState().getBlock() == Blocks.DIRT) {
+            event.setDigSpeed(0.05F);
+        }
+    }
 
-        Events.SCREENSHOT.register(event -> {
-            event.setScreenshotFile(new File("screenshotevent/", event.getScreenshotFile().getName()));
-            event.setResultMessage(new TextComponentString("Screenshot saved to " + event.getScreenshotFile().getPath()));
-            final BufferedImage image = event.getImage();
-            final Graphics graphics = image.createGraphics();
-            graphics.setColor(Color.RED);
-            graphics.setFont(new Font("Arial Black", Font.BOLD, 20));
-            graphics.drawString("Open Mod Loader", 20, 40);
-        });
+    private void onGuiOpen(GuiEvent.Open event) {
+        OpenModLoader.INSTANCE.LOGGER.info("Opening gui: " + event.getGui());
+        if (event.getGui() instanceof GuiLanguage) {
+            event.setCanceled(true);
+        }
+    }
+
+    private void onItemEnchanted(ItemEnchantedEvent event) {
+        OpenModLoader.INSTANCE.LOGGER.info(event.getItemStack().getDisplayName() + " " + event.getEnchantments().toString());
+    }
+
+    private void onExplosion(ExplosionEvent event) {
+        event.setCanceled(true);
+    }
+
+    private void onSplashLoad(SplashLoadEvent event) {
+        event.getSplashTexts().clear();
+        event.getSplashTexts().add("OpenModLoader Test!");
+    }
+
+    private void onScreenshot(ScreenshotEvent event) {
+        event.setScreenshotFile(new File("screenshotevent/", event.getScreenshotFile().getName()));
+        event.setResultMessage(new TextComponentString("Screenshot saved to " + event.getScreenshotFile().getPath()));
+        final BufferedImage image = event.getImage();
+        final Graphics graphics = image.createGraphics();
+        graphics.setColor(Color.RED);
+        graphics.setFont(new Font("Arial Black", Font.BOLD, 20));
+        graphics.drawString("Open Mod Loader", 20, 40);
     }
 }

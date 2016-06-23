@@ -1,6 +1,7 @@
 package xyz.openmodloader.event.impl;
 
 import net.minecraft.util.text.ITextComponent;
+import xyz.openmodloader.OpenModLoader;
 import xyz.openmodloader.event.Event;
 import xyz.openmodloader.event.strippable.Side;
 
@@ -73,6 +74,6 @@ public class ChatReceivedEvent extends Event {
      */
     public static ITextComponent onChatReceived(ITextComponent message, Side side) {
         final ChatReceivedEvent event = new ChatReceivedEvent(message, side);
-        return xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event) ? event.getMessage() : null;
+        return OpenModLoader.INSTANCE.EVENT_BUS.post(event) ? event.getMessage() : null;
     }
 }
