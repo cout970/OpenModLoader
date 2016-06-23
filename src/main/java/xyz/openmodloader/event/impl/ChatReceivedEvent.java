@@ -73,6 +73,6 @@ public class ChatReceivedEvent extends Event {
      */
     public static ITextComponent onChatReceived(ITextComponent message, Side side) {
         final ChatReceivedEvent event = new ChatReceivedEvent(message, side);
-        return (xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event)) ? event.getMessage() : null;
+        return !xyz.openmodloader.event.Events.CHAT_RECEIVED.post(event) ? event.getMessage() : null;
     }
 }

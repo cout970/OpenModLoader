@@ -130,6 +130,6 @@ public class ItemEnchantedEvent extends Event {
      */
     public static List<EnchantmentData> onItemEnchanted(EntityPlayer player, ItemStack stack, ItemStack fuel, int levels, List<EnchantmentData> enchantments) {
         final ItemEnchantedEvent event = new ItemEnchantedEvent(player, stack, fuel, levels, enchantments);
-        return Events.ITEM_ENCHANTED.post(event) ? null : event.getEnchantments();
+        return !Events.ITEM_ENCHANTED.post(event) ? null : event.getEnchantments();
     }
 }
