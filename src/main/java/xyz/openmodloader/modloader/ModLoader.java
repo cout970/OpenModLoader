@@ -101,14 +101,12 @@ public final class ModLoader {
                 containerList.add(GSON.fromJson(e, ModContainer.class));
             }
         } else {
-            containerList.add(GSON.fromJson(new InputStreamReader(stream), ModContainer.class));
+            containerList.add(GSON.fromJson(element, ModContainer.class));
         }
-        for (ModContainer container : containerList) {
-            if (container != null) {
-                OpenModLoader.INSTANCE.LOGGER.info("Found mod " + container.getName() + " (with id " + container.getModID() + ")");
-                MODS.put(container.getModID(), container);
-            }
-        }
+        containerList.stream().filter(container -> container != null).forEach(container -> {
+            OpenModLoader.INSTANCE.LOGGER.info("Found mod " + container.getName() + " (with id " + container.getModID() + ")");
+            MODS.put(container.getModID(), container);
+        });
     }
 
     /**
