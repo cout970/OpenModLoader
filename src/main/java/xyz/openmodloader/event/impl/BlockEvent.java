@@ -200,8 +200,7 @@ public class BlockEvent extends Event {
          * @param initialDrops The list of items that the block can drop without applying chance
          * @param finalDrops The list of items that the block will drop
          */
-        public HarvestDrops(World world, IBlockState state, BlockPos pos, float chance, int fortune,
-                            ImmutableList<ItemStack> initialDrops, List<ItemStack> finalDrops) {
+        public HarvestDrops(World world, IBlockState state, BlockPos pos, float chance, int fortune, ImmutableList<ItemStack> initialDrops, List<ItemStack> finalDrops) {
             super(world, state, pos);
             this.chance = chance;
             this.fortune = fortune;
@@ -261,8 +260,7 @@ public class BlockEvent extends Event {
          * @return The list of items that the block will drop
          */
         public static List<ItemStack> onHarvestDrops(World world, IBlockState state, BlockPos pos, float chance, int fortune, List<ItemStack> initialDrops){
-            List<ItemStack> finalDrops = initialDrops.stream().filter(stack -> world.rand.nextFloat() <= chance)
-                    .map(ItemStack::copy).collect(Collectors.toCollection(LinkedList::new));
+            List<ItemStack> finalDrops = initialDrops.stream().filter(stack -> world.rand.nextFloat() <= chance).map(ItemStack::copy).collect(Collectors.toCollection(LinkedList::new));
             BlockEvent.HarvestDrops event = new xyz.openmodloader.event.impl.BlockEvent.HarvestDrops(world, state, pos, chance, fortune, ImmutableList.copyOf(initialDrops), finalDrops);
             OpenModLoader.INSTANCE.EVENT_BUS.post(event);
             return event.getFinalDrops();

@@ -86,8 +86,7 @@ public class OMLTestMod implements IMod {
     }
 
     private void onHarvestDrops(BlockEvent.HarvestDrops event){
-        OpenModLoader.INSTANCE.LOGGER.info("Dropping items: "+event.getFinalDrops()+" from original items: "
-                +event.getInitialDrops()+", with fortune: "+event.getFortune()+", with chance: "+event.getChance());
+        OpenModLoader.INSTANCE.LOGGER.info("Dropping items: " + event.getFinalDrops() + " from original items: " + event.getInitialDrops() + ", with fortune: " + event.getFortune() + ", with chance: " + event.getChance());
         event.getFinalDrops().add(new ItemStack(Blocks.DIRT));
     }
 }
