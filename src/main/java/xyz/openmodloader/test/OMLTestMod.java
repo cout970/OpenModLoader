@@ -14,9 +14,6 @@ import xyz.openmodloader.OpenModLoader;
 import xyz.openmodloader.event.Events;
 import xyz.openmodloader.modloader.IMod;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-
 public class OMLTestMod implements IMod {
     @Override
     public void onEnable() {
